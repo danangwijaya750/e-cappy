@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "772112708811",
+    "firebase_url": "https://e-chappy.firebaseio.com",
+    "project_id": "e-chappy",
+    "storage_bucket": "e-chappy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772112708811:android:3f6771ca485c617661974e",
+        "android_client_info": {
+          "package_name": "id.infiniteuny.mediapembelajaran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772112708811-kief2v3v5as4r1su90a745qa8p2fmd59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6QoFVrURdY1sE3TKxv6wOTen9SNOwur8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772112708811-kief2v3v5as4r1su90a745qa8p2fmd59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
