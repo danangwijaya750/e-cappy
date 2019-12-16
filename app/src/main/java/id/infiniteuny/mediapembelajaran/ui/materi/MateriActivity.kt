@@ -7,7 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
 import kotlinx.android.synthetic.main.activity_setting.btn_back
 
-class MateriActivity : AppCompatActivity(),MaterView {
+class MateriActivity : AppCompatActivity(),MateriView {
 
 
     private lateinit var presenter: MateriPresenter
