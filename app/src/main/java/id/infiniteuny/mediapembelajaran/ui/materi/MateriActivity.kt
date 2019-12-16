@@ -32,7 +32,7 @@ class MateriActivity : AppCompatActivity(),MaterView {
     override fun isLoading(state: Boolean) {
 
     }
-
+ 
     override fun isError(msg: String) {
 
     }
