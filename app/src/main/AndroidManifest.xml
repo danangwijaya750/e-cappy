@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.detail_materi.DetailMateriActivity"></activity>
+        <activity android:name=".ui.soal.SoalActivity"></activity>
+        <activity android:name=".ui.detail_materi.DetailMateriActivity" />
         <activity android:name=".ui.quiz.QuizActivity" />
         <activity android:name=".ui.materi.MateriActivity" />
         <activity android:name=".ui.manual.ManualActivity" />

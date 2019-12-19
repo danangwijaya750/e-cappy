@@ -2,8 +2,11 @@ package id.infiniteuny.mediapembelajaran.ui.quiz
 
 import android.app.ActivityManager
 import android.content.Context
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.Window
+import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
@@ -17,6 +20,13 @@ class QuizActivity : AppCompatActivity(),QuizView {
         super.onCreate(savedInstanceState)
         window.requestFeature(Window.FEATURE_ACTION_BAR)
         setContentView(R.layout.activity_quiz)
+        if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
+            val w = window
+            w.setFlags(
+                LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
         supportActionBar?.hide()
         presenter= QuizPresenter(FirebaseFirestore.getInstance(),this)
 

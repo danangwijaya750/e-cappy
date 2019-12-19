@@ -1,5 +1,6 @@
 package id.infiniteuny.mediapembelajaran.ui.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
@@ -12,6 +13,7 @@ import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
 import id.infiniteuny.mediapembelajaran.ui.materi.MateriActivity
 import id.infiniteuny.mediapembelajaran.ui.quiz.QuizActivity
 import id.infiniteuny.mediapembelajaran.ui.setting.SettingActivity
+import id.infiniteuny.mediapembelajaran.ui.soal.SoalActivity
 import kotlinx.android.synthetic.main.activity_main.btn_materi
 import kotlinx.android.synthetic.main.activity_main.btn_pengaturan
 import kotlinx.android.synthetic.main.activity_main.btn_petunjuk
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_main.btn_soal
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.requestFeature(Window.FEATURE_ACTION_BAR)
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingActivity::class.java))
         }
         btn_soal.setOnClickListener {
-            startActivity(Intent(this, QuizActivity::class.java))
+            startActivity(Intent(this, SoalActivity::class.java))
         }
         btn_materi.setOnClickListener {
             startActivity(Intent(this, MateriActivity::class.java))

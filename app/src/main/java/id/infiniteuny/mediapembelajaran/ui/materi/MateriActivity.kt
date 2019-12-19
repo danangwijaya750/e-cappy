@@ -1,8 +1,11 @@
 package id.infiniteuny.mediapembelajaran.ui.materi
 
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -28,6 +31,13 @@ class MateriActivity : AppCompatActivity(), MateriView {
         super.onCreate(savedInstanceState)
         window.requestFeature(Window.FEATURE_ACTION_BAR)
         setContentView(R.layout.activity_materi)
+        if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
+            val w = window
+            w.setFlags(
+                LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
         supportActionBar?.hide()
 
         rv_materi.apply {
