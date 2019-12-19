@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import id.infiniteuny.mediapembelajaran.R
+import kotlinx.android.synthetic.main.activity_detail_materi.web_view
 
 class DetailMateriActivity : AppCompatActivity() {
 
@@ -13,5 +14,6 @@ class DetailMateriActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_materi)
         supportActionBar?.hide()
 
+        web_view.loadUrl("file:///android_res/raw/materi1.html")
     }
 }
