@@ -15,7 +15,7 @@ class QuizPresenter(private val db:FirebaseFirestore,private val view:QuizView) 
     fun getTrainQuestions(){
         val dataQuestions= mutableListOf<QuestionModel>()
         for(i in 0..5){
-            val question=QuestionModel("Question $i","option1 $i","option2 $i","option3 $i","option4 $i","option5 $i",i)
+            val question=QuestionModel("Question $i","option1 $i","option2 $i","option3 $i","option4 $i","option5 $i",i,"")
             dataQuestions.add(question)
         }
         view.showQuestions(dataQuestions)

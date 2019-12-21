@@ -14,7 +14,8 @@ data class QuestionModel(
     var option3: String,
     var option4: String,
     var option5: String,
-    var rightAns: Int
+    var rightAns: Int,
+    var key_quiz:String
 ) : Parcelable{
-    constructor():this("","","","","","",0)
+    constructor():this("","","","","","",0,"")
 }
