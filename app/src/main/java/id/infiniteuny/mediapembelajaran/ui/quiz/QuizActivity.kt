@@ -68,7 +68,7 @@ class QuizActivity : AppCompatActivity(), QuizView {
     private fun quizTypeDecision() {
         when (quizType) {
             "eval" -> {
-                presenter.getAllQuestions()
+
             }
             "train" -> {
                 presenter.getTrainQuestions()

@@ -7,9 +7,14 @@ import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager.LayoutParams
+import android.widget.EditText
+import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginStart
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.ui.quiz.QuizActivity
+import id.infiniteuny.mediapembelajaran.ui.quiz.QuizOnlineActivity
 import kotlinx.android.synthetic.main.activity_soal.btn_back
 import kotlinx.android.synthetic.main.activity_soal.btn_latihan
 import kotlinx.android.synthetic.main.activity_soal.btn_uji
@@ -39,7 +44,22 @@ class SoalActivity : AppCompatActivity() {
         }
 
         btn_uji.setOnClickListener {
-            startQuiz("eval")
+            val input=EditText(this)
+            val builder=AlertDialog.Builder(this)
+            builder.apply {
+                setTitle("Masukan Key Quiz Anda : ")
+                setView(input)
+                setPositiveButton("Ok"){ _, _ ->
+                    val intent =Intent(this@SoalActivity,QuizOnlineActivity::class.java)
+                    intent.putExtra("key",input.text.toString())
+                    startActivity(intent)
+                }
+                setNegativeButton("Batal"){ _,_->
+
+                }
+            }
+            builder.create().show()
+
         }
     }
 

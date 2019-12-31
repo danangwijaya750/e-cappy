@@ -24,6 +24,8 @@ import kotlinx.android.synthetic.main.activity_quiz.radioButton5
 import kotlinx.android.synthetic.main.activity_quiz.radioGroup
 import kotlinx.android.synthetic.main.activity_quiz.timeCounter
 import kotlinx.android.synthetic.main.activity_quiz.tv_question
+import kotlinx.android.synthetic.main.activity_quiz_online.pg_bar
+import kotlinx.android.synthetic.main.activity_quiz_online.quiz_container
 import kotlinx.android.synthetic.main.activity_setting.btn_back
 import java.util.Collections.shuffle
 import java.util.Locale
@@ -41,6 +43,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     private var countDownTimer: CountDownTimer? = null
 
     private var timeLeft: Long = 0
+    private var answered=false
 
     private var qCounter: Int = 0
     private var qCountTotal: Int = 0
@@ -61,9 +64,11 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             )
         }
         supportActionBar?.hide()
+        colorStateListCountDown = timeCounter!!.textColors
 
         presenter = QuizPresenter(FirebaseFirestore.getInstance(), this)
 
+        timeLeft= COUNTDOWN_TIMER
         loadQuiz()
 
         btn_back.setOnClickListener {
@@ -77,7 +82,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     }
 
     private fun loadQuiz() {
-        presenter.getAllQuestions()
+        presenter.getAllQuestions(intent.getStringExtra("key")!!)
     }
 
     private fun startCountDown() {
@@ -90,6 +95,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             override fun onFinish() {
                 timeLeft = 0
                 updateCountDown()
+//                checkAnswer()
             }
         }.start()
     }
@@ -99,7 +105,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         val sec = (timeLeft / 1000).toInt() % 60
 
         val timeFormat = String.format(Locale.getDefault(), "%02d:%02d", min, sec)
-        timeCounter!!.setText(timeFormat)
+        timeCounter!!.text = timeFormat
 
         if (timeLeft < 10000) {
             timeCounter!!.setTextColor(Color.RED)
@@ -109,16 +115,27 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     }
 
     override fun isLoading(state: Boolean) {
+        when(state){
+            true->{
+                pg_bar.visibility=View.VISIBLE
+                quiz_container.visibility=View.GONE
+            }
+            else->{
+                pg_bar.visibility=View.GONE
+                quiz_container.visibility=View.VISIBLE
+            }
+        }
     }
 
     override fun isError(msg: String) {
-        toastCnt("Error Saat mengambil Soal, Pastikan Anda terhubung dengan Internet")
+        toastCnt("Error Saat mengambil Soal, Pastikan Key Anda benar dan terhubung dengan Internet")
     }
 
     override fun showQuestions(data: List<QuestionModel>) {
         dataQuiz.clear()
         dataQuiz.addAll(data)
         shuffle(dataQuiz)
+        startCountDown()
         loadQuestion()
     }
 
@@ -142,8 +159,15 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         }
 
         questionPos++
-        if (questionPos < dataQuiz.size - 1) {
+        if (questionPos <= dataQuiz.size - 1) {
             loadQuestion()
+        }else{
+            //show score
         }
+    }
+    companion object {
+
+        val FINAL_SCORE = "FinalScore"
+        private val COUNTDOWN_TIMER: Long = 60000
     }
 }
