@@ -1,5 +1,6 @@
 package id.infiniteuny.mediapembelajaran.ui.quiz
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build.VERSION
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
+import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
 import kotlinx.android.synthetic.main.activity_quiz.btn_submit
 import kotlinx.android.synthetic.main.activity_quiz.radioButton1
@@ -25,6 +27,8 @@ import kotlinx.android.synthetic.main.activity_quiz.radioGroup
 import kotlinx.android.synthetic.main.activity_quiz.timeCounter
 import kotlinx.android.synthetic.main.activity_quiz.tv_question
 import kotlinx.android.synthetic.main.activity_quiz_online.pg_bar
+import kotlinx.android.synthetic.main.activity_quiz_online.progressbar
+import kotlinx.android.synthetic.main.activity_quiz_online.questionCount
 import kotlinx.android.synthetic.main.activity_quiz_online.quiz_container
 import kotlinx.android.synthetic.main.activity_setting.btn_back
 import java.util.Collections.shuffle
@@ -43,7 +47,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     private var countDownTimer: CountDownTimer? = null
 
     private var timeLeft: Long = 0
-    private var answered=false
+    private var answered = false
 
     private var qCounter: Int = 0
     private var qCountTotal: Int = 0
@@ -51,6 +55,8 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     private var ans: Boolean = false
 
     private var onBackPressedTime: Long = 0
+
+    private var pgBarControl=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,11 +70,14 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             )
         }
         supportActionBar?.hide()
+        progressbar.progressDrawable.setColorFilter(R.color.softYellow, android.graphics.PorterDuff.Mode.SRC_IN)
+        progressbar.progress = pgBarControl
+
         colorStateListCountDown = timeCounter!!.textColors
 
         presenter = QuizPresenter(FirebaseFirestore.getInstance(), this)
 
-        timeLeft= COUNTDOWN_TIMER
+        timeLeft = COUNTDOWN_TIMER
         loadQuiz()
 
         btn_back.setOnClickListener {
@@ -95,7 +104,8 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             override fun onFinish() {
                 timeLeft = 0
                 updateCountDown()
-//                checkAnswer()
+                toastCnt("Waktu Habis")
+                showResultQuiz()
             }
         }.start()
     }
@@ -115,14 +125,14 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     }
 
     override fun isLoading(state: Boolean) {
-        when(state){
-            true->{
-                pg_bar.visibility=View.VISIBLE
-                quiz_container.visibility=View.GONE
+        when (state) {
+            true -> {
+                pg_bar.visibility = View.VISIBLE
+                quiz_container.visibility = View.GONE
             }
-            else->{
-                pg_bar.visibility=View.GONE
-                quiz_container.visibility=View.VISIBLE
+            else -> {
+                pg_bar.visibility = View.GONE
+                quiz_container.visibility = View.VISIBLE
             }
         }
     }
@@ -146,25 +156,39 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         radioButton3.text = dataQuiz[questionPos].option3
         radioButton4.text = dataQuiz[questionPos].option4
         radioButton5.text = dataQuiz[questionPos].option5
+        questionCount.text = "${questionPos + 1} / ${dataQuiz.size}"
     }
 
     private fun checkAnswer() {
-
-        val radioSelected = findViewById<View>(radioGroup!!.checkedRadioButtonId) as RadioButton
-        val answer = radioGroup!!.indexOfChild(radioSelected) + 1
-        if (answer == dataQuiz[questionPos].rightAns) {
-            toastCnt("True")
-        } else {
-            toastCnt("false")
-        }
-
-        questionPos++
         if (questionPos <= dataQuiz.size - 1) {
-            loadQuestion()
-        }else{
-            //show score
+            val radioSelected = findViewById<View>(radioGroup!!.checkedRadioButtonId) as RadioButton
+            val answer = radioGroup!!.indexOfChild(radioSelected) + 1
+            if (answer == dataQuiz[questionPos].rightAns) {
+                toastCnt("True")
+                score++
+            } else {
+                toastCnt("false")
+            }
+            questionPos++
+            if (questionPos <= dataQuiz.size - 1) {
+                loadQuestion()
+            } else {
+                showResultQuiz()
+            }
         }
     }
+
+    private fun showResultQuiz() {
+        countDownTimer!!.cancel()
+        val intent = Intent(this, QuizResultActivity::class.java)
+        logD("score $score")
+        score = (score * 100) / dataQuiz.size
+        intent.putExtra("score", score)
+        startActivity(intent)
+        finish()
+//        toastCnt(score.toString())
+    }
+
     companion object {
 
         val FINAL_SCORE = "FinalScore"

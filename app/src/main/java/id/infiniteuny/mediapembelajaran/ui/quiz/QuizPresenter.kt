@@ -36,7 +36,7 @@ class QuizPresenter(private val db: FirebaseFirestore, private val view: QuizVie
 
     fun getTrainQuestions() {
         val dataQuestions = mutableListOf<QuestionModel>()
-        for (i in 0..5) {
+        for (i in 1..5) {
             val question = QuestionModel(
                 "Question $i",
                 "option1 $i",

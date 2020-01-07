@@ -8,4 +8,5 @@
     <color name="cyan">#42ffde</color>
     <color name="softYellow">#fdb909</color>
     <color name="softRed">#e70066</color>
+    <color name="navBackground">#0A0A48</color>
 </resources>
