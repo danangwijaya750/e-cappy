@@ -70,7 +70,6 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             )
         }
         supportActionBar?.hide()
-        progressbar.progressDrawable.setColorFilter(R.color.softYellow, android.graphics.PorterDuff.Mode.SRC_IN)
         progressbar.progress = pgBarControl
 
         colorStateListCountDown = timeCounter!!.textColors
@@ -98,11 +97,15 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         countDownTimer = object : CountDownTimer(timeLeft, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft = millisUntilFinished
+                pgBarControl++
+                progressbar.progress = pgBarControl * 100 / (COUNTDOWN_TIMER.toInt()/ 1000)
                 updateCountDown()
             }
 
             override fun onFinish() {
                 timeLeft = 0
+                pgBarControl++
+                progressbar.progress = 100
                 updateCountDown()
                 toastCnt("Waktu Habis")
                 showResultQuiz()
@@ -113,7 +116,6 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     private fun updateCountDown() {
         val min = (timeLeft / 1000).toInt() / 60
         val sec = (timeLeft / 1000).toInt() % 60
-
         val timeFormat = String.format(Locale.getDefault(), "%02d:%02d", min, sec)
         timeCounter!!.text = timeFormat
 
