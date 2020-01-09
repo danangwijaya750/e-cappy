@@ -12,8 +12,10 @@ import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.firebase.auth.FirebaseAuth
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.R.string
+import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
 import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
 import id.infiniteuny.mediapembelajaran.ui.materi.MateriActivity
 import id.infiniteuny.mediapembelajaran.ui.quiz.QuizActivity
@@ -60,7 +62,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingActivity::class.java))
         }
         tv_keluar.setOnClickListener {
-            finish()
+            val fAuth=FirebaseAuth.getInstance()
+            if(fAuth.currentUser!=null){
+                fAuth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+
         }
         btn_nav.setOnClickListener {
             when(drawerLayout.isDrawerOpen(Gravity.LEFT)){
@@ -71,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
 
     }
 
