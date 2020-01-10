@@ -14,6 +14,7 @@ import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
+import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
 import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
@@ -56,7 +57,10 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
 
     private var onBackPressedTime: Long = 0
 
-    private var pgBarControl=1
+    private var pgBarControl = 1
+    private var keyQuiz=""
+
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,10 +75,11 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         }
         supportActionBar?.hide()
         progressbar.progress = pgBarControl
+        db = FirebaseFirestore.getInstance()
 
         colorStateListCountDown = timeCounter!!.textColors
 
-        presenter = QuizPresenter(FirebaseFirestore.getInstance(), this)
+        presenter = QuizPresenter(db, this)
 
         timeLeft = COUNTDOWN_TIMER
         loadQuiz()
@@ -90,7 +95,8 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     }
 
     private fun loadQuiz() {
-        presenter.getAllQuestions(intent.getStringExtra("key")!!)
+        keyQuiz=intent.getStringExtra("key")!!
+        presenter.getAllQuestions(keyQuiz)
     }
 
     private fun startCountDown() {
@@ -98,7 +104,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft = millisUntilFinished
                 pgBarControl++
-                progressbar.progress = pgBarControl * 100 / (COUNTDOWN_TIMER.toInt()/ 1000)
+                progressbar.progress = pgBarControl * 100 / (COUNTDOWN_TIMER.toInt() / 1000)
                 updateCountDown()
             }
 
@@ -151,6 +157,30 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         loadQuestion()
     }
 
+    override fun resultUpload(state: Boolean, score: Int) {
+        when (state) {
+            true -> {
+                val intent = Intent(this, QuizResultActivity::class.java)
+                intent.putExtra("score", score)
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
+
+    override fun resultLoad(state: Boolean) {
+        when (state) {
+            true -> {
+                pg_bar.visibility = View.VISIBLE
+                quiz_container.visibility = View.GONE
+            }
+            else -> {
+                pg_bar.visibility = View.GONE
+                quiz_container.visibility = View.VISIBLE
+            }
+        }
+    }
+
     private fun loadQuestion() {
         tv_question.text = dataQuiz[questionPos].question
         radioButton1.text = dataQuiz[questionPos].option1
@@ -182,12 +212,10 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
 
     private fun showResultQuiz() {
         countDownTimer!!.cancel()
-        val intent = Intent(this, QuizResultActivity::class.java)
         logD("score $score")
         score = (score * 100) / dataQuiz.size
-        intent.putExtra("score", score)
-        startActivity(intent)
-        finish()
+        logD(Pref(this).user_name)
+        presenter.uploadScore(score,keyQuiz, Pref(this).user_name)
 //        toastCnt(score.toString())
     }
 

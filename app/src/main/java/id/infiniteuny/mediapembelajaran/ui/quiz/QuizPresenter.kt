@@ -1,7 +1,9 @@
 package id.infiniteuny.mediapembelajaran.ui.quiz
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
+import id.infiniteuny.mediapembelajaran.data.ScoreModel
 import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.logE
 
@@ -50,5 +52,24 @@ class QuizPresenter(private val db: FirebaseFirestore, private val view: QuizVie
             dataQuestions.add(question)
         }
         view.showQuestions(dataQuestions)
+    }
+    fun uploadScore(score:Int,keyquiz:String,name:String){
+        val fAuth=FirebaseAuth.getInstance()
+        val uid= fAuth.currentUser!!.uid
+        view.resultLoad(true)
+        db.collection("student_grade")
+            .add(ScoreModel(uid,score.toString(),name,keyquiz))
+            .addOnCompleteListener {
+                if(it.isSuccessful){
+                    view.resultUpload(true,score)
+                }else{
+                    view.resultUpload(false,score)
+                }
+                view.resultLoad(false)
+            }
+            .addOnFailureListener {
+                view.resultUpload(false,score)
+                view.resultLoad(false)
+            }
     }
 }

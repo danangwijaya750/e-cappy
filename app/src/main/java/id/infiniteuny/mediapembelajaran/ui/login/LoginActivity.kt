@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
+import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.ui.main.MainActivity
+import id.infiniteuny.mediapembelajaran.ui.teacher.TeacherDashActivity
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
 import kotlinx.android.synthetic.main.activity_login.btn_login
 import kotlinx.android.synthetic.main.activity_login.et_email
@@ -40,10 +42,15 @@ class LoginActivity : AppCompatActivity() {
             db.collection("student").whereEqualTo("uid", fAuth.uid)
                 .get().addOnSuccessListener {
                     if (it.isEmpty) {
-                        toastCnt("is not student")
+                        toastCnt("Wellcome Teacher")
+                        Pref(this).user_name="Teacher"
+                        startActivity(Intent(this@LoginActivity, TeacherDashActivity::class.java))
+                        this@LoginActivity.finish()
                     } else {
-                        toastCnt("is student")
+                        toastCnt("Wellcome Student")
+                        Pref(this).user_name=it.documents[0]["name"].toString()
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        this@LoginActivity.finish()
                     }
                     pg_bar.visibility = View.GONE
                 }

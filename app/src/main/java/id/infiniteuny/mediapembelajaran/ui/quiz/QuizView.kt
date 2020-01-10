@@ -10,4 +10,6 @@ interface QuizView {
     fun isLoading(state: Boolean)
     fun isError(msg: String)
     fun showQuestions(data:List<QuestionModel>)
+    fun resultUpload(state: Boolean,score:Int)
+    fun resultLoad(state: Boolean)
 }

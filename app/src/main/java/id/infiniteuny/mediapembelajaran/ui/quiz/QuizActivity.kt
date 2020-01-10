@@ -104,6 +104,14 @@ class QuizActivity : AppCompatActivity(), QuizView {
         loadQuestion()
     }
 
+    override fun resultUpload(state: Boolean,score:Int) {
+
+    }
+
+    override fun resultLoad(state: Boolean) {
+
+    }
+
     private fun loadQuestion() {
         tv_question.text = dataQuiz[questionPos].question
         radioButton1.text = dataQuiz[questionPos].option1
