@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.grade.StudentGradesActivity"></activity>
+        <activity android:name=".ui.kikd.KikdActivity"></activity>
+        <activity android:name=".ui.grade.StudentGradesActivity" />
         <activity android:name=".ui.teacher.TeacherDashActivity" />
         <activity android:name=".ui.quiz.QuizResultActivity" />
         <activity android:name=".ui.quiz.QuizOnlineActivity" />

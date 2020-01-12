@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.R.string
 import id.infiniteuny.mediapembelajaran.data.Pref
+import id.infiniteuny.mediapembelajaran.ui.kikd.KikdActivity
 import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
 import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
 import id.infiniteuny.mediapembelajaran.ui.materi.MateriActivity
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         initDrawer()
         tv_username.text= Pref(this).user_name
         btn_kikd.setOnClickListener {
-            //startActivity(Intent(this, SettingActivity::class.java))
+            startActivity(Intent(this, KikdActivity::class.java))
         }
         btn_soal.setOnClickListener {
             startActivity(Intent(this, SoalActivity::class.java))
