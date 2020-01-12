@@ -72,51 +72,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.cardview.widget.CardView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/btn_latihan"
                     android:layout_width="0dp"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="10dp"
+
                     android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_practice"
                     android:layout_rowWeight="1"
-                    app:cardBackgroundColor="@color/softRed"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
+                </androidx.appcompat.widget.AppCompatImageView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:text="Latihan"
-                        android:textColor="#fff"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/btn_uji"
                     android:layout_width="0dp"
-                    android:layout_height="130dp"
+                    android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_rowWeight="1"
-                    app:cardBackgroundColor="@color/lightBlue"
+                    android:src="@drawable/ic_eval"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:text="Uji Kemampuan"
-                        android:textColor="#fff"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </androidx.cardview.widget.CardView>
+                </androidx.appcompat.widget.AppCompatImageView>
 
 
             </GridLayout>
