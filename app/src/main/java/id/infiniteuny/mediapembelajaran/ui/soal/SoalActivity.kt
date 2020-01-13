@@ -44,21 +44,24 @@ class SoalActivity : AppCompatActivity() {
         }
 
         btn_uji.setOnClickListener {
-            val input=EditText(this)
-            val builder=AlertDialog.Builder(this)
-            builder.apply {
-                setTitle("Masukan Key Quiz Anda : ")
-                setView(input)
-                setPositiveButton("Ok"){ _, _ ->
-                    val intent =Intent(this@SoalActivity,QuizOnlineActivity::class.java)
-                    intent.putExtra("key",input.text.toString())
-                    startActivity(intent)
-                }
-                setNegativeButton("Batal"){ _,_->
-
-                }
-            }
-            builder.create().show()
+            val intent =Intent(this@SoalActivity,QuizOnlineActivity::class.java)
+            intent.putExtra("key","Key1-Generated")
+            startActivity(intent)
+//            val input=EditText(this)
+//            val builder=AlertDialog.Builder(this)
+//            builder.apply {
+//                setTitle("Masukan Key Quiz Anda : ")
+//                setView(input)
+//                setPositiveButton("Ok"){ _, _ ->
+//                    val intent =Intent(this@SoalActivity,QuizOnlineActivity::class.java)
+//                    intent.putExtra("key",input.text.toString())
+//                    startActivity(intent)
+//                }
+//                setNegativeButton("Batal"){ _,_->
+//
+//                }
+//            }
+//            builder.create().show()
 
         }
     }

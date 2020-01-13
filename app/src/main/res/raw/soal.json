@@ -1,1 +1,23 @@
-{}
+{
+  "data": [
+    {
+      "question": "ini soalnya...?",
+      "option1" : "ini jawaban1",
+      "option2" : "ini jawaban2",
+      "option3" : "ini jawaban3",
+      "option4" : "ini jawaban4",
+      "option5" : "ini jawaban5",
+      "rightAns" : 1,
+      "key_quiz" : "key"
+    },{
+      "question": "ini soalnya ke 2...?",
+      "option1" : "ini jawaban1",
+      "option2" : "ini jawaban2",
+      "option3" : "ini jawaban3",
+      "option4" : "ini jawaban4",
+      "option5" : "ini jawaban5",
+      "rightAns" : 1,
+      "key_quiz" : "key"
+    }
+  ]
+}

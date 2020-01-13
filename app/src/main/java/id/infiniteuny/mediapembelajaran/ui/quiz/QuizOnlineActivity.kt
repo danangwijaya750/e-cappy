@@ -1,5 +1,7 @@
 package id.infiniteuny.mediapembelajaran.ui.quiz
 
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -94,6 +96,14 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        val activityManager = applicationContext
+            .getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+
+        activityManager.moveTaskToFront(taskId, 0)
+    }
+
     private fun loadQuiz() {
         keyQuiz=intent.getStringExtra("key")!!
         presenter.getAllQuestions(keyQuiz)
@@ -166,6 +176,12 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
                 finish()
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        countDownTimer!!.cancel()
+        finish()
     }
 
     override fun resultLoad(state: Boolean) {

@@ -72,25 +72,30 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/btn_latihan"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="210dp"
                     android:layout_columnWeight="1"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="10dp"
 
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/ic_practice"
+                    android:src="@drawable/ic_latihan"
                     android:layout_rowWeight="1"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
-                </androidx.appcompat.widget.AppCompatImageView>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_latihan"
+                        />
+                </androidx.cardview.widget.CardView>
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/btn_uji"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="210dp"
                     android:layout_columnWeight="1"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="10dp"
@@ -99,8 +104,12 @@
                     android:src="@drawable/ic_eval"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
-
-                </androidx.appcompat.widget.AppCompatImageView>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_ujikem"
+                        />
+                </androidx.cardview.widget.CardView>
 
 
             </GridLayout>
