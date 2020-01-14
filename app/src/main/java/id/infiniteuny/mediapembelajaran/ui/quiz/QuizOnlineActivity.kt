@@ -171,6 +171,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         when (state) {
             true -> {
                 val intent = Intent(this, QuizResultActivity::class.java)
+                intent.putExtra("caller","eval")
                 intent.putExtra("score", score)
                 startActivity(intent)
                 finish()
@@ -214,10 +215,10 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             val radioSelected = findViewById<View>(radioGroup!!.checkedRadioButtonId) as RadioButton
             val answer = radioGroup!!.indexOfChild(radioSelected) + 1
             if (answer == dataQuiz[questionPos].rightAns) {
-                toastCnt("True")
+                //toastCnt("True")
                 score++
             } else {
-                toastCnt("false")
+                //toastCnt("false")
             }
             questionPos++
             if (questionPos <= dataQuiz.size - 1) {
@@ -240,6 +241,6 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     companion object {
 
         val FINAL_SCORE = "FinalScore"
-        private val COUNTDOWN_TIMER: Long = 60000
+        private val COUNTDOWN_TIMER: Long = 1200000
     }
 }

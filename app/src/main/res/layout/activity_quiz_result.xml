@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/softYellow"
+    android:id="@+id/root_lay"
     tools:context=".ui.quiz.QuizResultActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +52,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_margin="15dp"
-            android:src="@drawable/trophy"
+            android:src="@drawable/trophy_skor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tool_bar" />
@@ -60,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="320dp"
             android:layout_margin="30dp"
+            android:id="@+id/card"
             app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +90,19 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#fff"
+            android:id="@+id/btn_to_home"
+            android:text="Beranda"
+            android:background="@drawable/btn_radius_blue"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
