@@ -1,5 +1,6 @@
 package id.infiniteuny.mediapembelajaran.ui.quiz
 
+import android.content.Context
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
 
 /**
@@ -12,4 +13,5 @@ interface QuizView {
     fun showQuestions(data:List<QuestionModel>)
     fun resultUpload(state: Boolean,score:Int)
     fun resultLoad(state: Boolean)
+    fun context():Context
 }

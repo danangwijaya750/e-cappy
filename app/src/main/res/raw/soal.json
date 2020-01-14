@@ -1,22 +1,303 @@
 {
   "data": [
     {
-      "question": "ini soalnya...?",
-      "option1" : "ini jawaban1",
-      "option2" : "ini jawaban2",
-      "option3" : "ini jawaban3",
-      "option4" : "ini jawaban4",
-      "option5" : "ini jawaban5",
+      "question": "Pada akhir tahun 2018 Perusahaan Dagang Cahaya Purnama masih mempunyai wesel tagih yang masih harus diterima sebesar Rp. 2.400.000,00. Maka jurnal penyesuaiannya adalah…",
+      "option1" : "Pendapatan Bunga		Rp 2.400.000,00 \n \t Piutang Bunga			Rp 2.400.000,00",
+      "option2" : "Kas				Rp 2.400.000,00 \n \t Pendapatan Bunga		Rp 2.400.000,00",
+      "option3" : "Piutang Bunga		Rp 2.400.000,00 \n \t Pendapatan Bunga		Rp 2.400.000,00",
+      "option4" : "Pendapatan Bunga		Rp 2.400.000,00 \n \t Kas				Rp 2.400.000,00",
+      "option5" : "Pendapatan Bunga		Rp 2.400.000,00 \n \t Utang	Bunga			Rp 2.400.000,00",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Karyawan Perusahaan Erlangga bekerja pada hari senin sampai jumat. Pembayaran gaji karyawan dilakukan secara mingguan pada hari Jum’at Rp 500.000,00. Pada tahun 2018 pembayaran gaji terakhir dilakukan pada hari Jum’at tanggal 25 Desember 2018. Maka jurnal penyesuaian 31 Desember 2018 adalah….",
+      "option1" : "Beban Gaji (D)		Rp 500.000,00 \nKas (K)			Rp 500.000,00",
+      "option2" : "Beban Gaji (D)		Rp 500.000,00 \nUtang Gaji (K)		Rp 500.000,00",
+      "option3" : "Utang Gaji (D)		Rp 400.000,00 \nBeban Gaji (K)		Rp 400.000,00",
+      "option4" : "Beban Gaji (D)		Rp 400.000,00 \nUtang Gaji (K)		Rp 400.000,00",
+      "option5" : "Utang Gaji (K)		Rp 500.000,00 \nBeban Gaji (D) 	Rp 500.000,00",
+      "rightAns" : 4,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Pada tanggal 1 Oktober 2018 Perusahaan Jaya Abadi mengambil pinjaman dari bank sebesar Rp10.000.000,00 dengan jangka waktu 120 hari, bunga 1 tahun 36%, jurnal penyesuaian 31 Desember 2018 (1 bulan= 30 hari)….",
+      "option1" : "Beban Bunga (D), Utang Bunga (K) masing-masing Rp 90.000,00",
+      "option2" : "Utang Bunga (D), Beban Bunga (K) masing-masing Rp 90.000,00 ",
+      "option3" : "Beban Bunga (D), Utang Bunga (K) masing-masing Rp 900.000,00",
+      "option4" : "Utang Bunga (D), Beban Bunga (K) masing-masing Rp 900.000,00",
+      "option5" : "Beban Bunga (D), Piutang Bunga (K) masing-masing Rp 900.000,00",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Pada tanggal 31 Desember 2018 PT Mayora Dunia memiliki piutang sebesar Rp. 20.000.000,00 Perusahaan menetapkan besar kerugian piutang adalah 8% dari total piutang. Maka Jurnal penyesuaiannya adalah…",
+      "option1" : "Beban Kerugian Piutang (D), Cadangan Kerugian Piutang (K) masing-masing Rp 1.600.000,00",
+      "option2" : "Beban Kerugian Piutang (D), Cadangan Krugian Piutang (K) masing-masing Rp 5.000.000,00",
+      "option3" : "Cadangan Kerugian Piutang (D), Beban Kerugian Piutang (K) masing-masing Rp 1.600.000,00",
+      "option4" : "Cadangan Kerugian Piutang(D), Beban Kerugian Piutang (K) masing-masing Rp 5.000.000,00",
+      "option5" : "Cadangan Kerugian Piutang(D), Beban Kerugian Piutang (K) masing-masing Rp 2.500.000,00",
       "rightAns" : 1,
       "key_quiz" : "key"
-    },{
-      "question": "ini soalnya ke 2...?",
-      "option1" : "ini jawaban1",
-      "option2" : "ini jawaban2",
-      "option3" : "ini jawaban3",
-      "option4" : "ini jawaban4",
-      "option5" : "ini jawaban5",
+    },
+    {
+      "question": "Perusahaan Amigos Profit membeli mesin dengan harga perolehan sebesar Rp. 280.000.000,00. Diperkirakan nilai residu dari mesin tersebut dengan pemakaian selama 12 tahun adalah sebesar 40.000.000,00. Maka Jurnal Penyesuaiannya adalah.... (Menggunakan Metode Gris Lurus).",
+      "option1" : "Beban Penyusutan Mesin				Rp 240.000.000,00 \n \t Akumulasi Penyusutan Mesin				Rp 240.000.000,00",
+      "option2" : "Beban Penyusutan Mesin				Rp 20.000.000,00 \n \t Akumulasi Penyusutan Mesin			Rp. 20.000.000,00",
+      "option3" : "Akumulasi Penyusutan Mesin				Rp 240.000.000,00 \n \t Beban Penyusutan Mesin				Rp 240.000.000,00",
+      "option4" : "Akumulasi Penyusutan Mesin				Rp 20.000.000,00 \n \t Beban Penyusutan Mesin				Rp 20.000.000,00",
+      "option5" : "Akumulasi Penyusutan Mesin			Rp 40.000.000,00 \n \t Beban Penyusutan Mesin				Rp 40.000.000,00",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Perusahaan Garuda Kencana membayar sewa sebesar Rp 18.000.000,00 untuk satu tahun kedepan. Apabila jumlah tersebut dibayar periode 1 Juli 2018 sampai 1 Juli 2019. Maka jurnal penyesuaian pada tanggal 31 Desember 2018 adalah….",
+      "option1" : "Beban Sewa (D)		Rp 9.000.000,00 \nSewa dibayar dimuka (K)	Rp 9.000.000,00",
+      "option2" : "Beban Sewa (D)		Rp 6.000.000,00 \nSewa dibayar dimuka (K)	Rp 6.000.000,00",
+      "option3" : "Beban Sewa (D)		Rp 5.250.000,00 \nSewa dibayar dimuka (K)	Rp 5.250.000,00",
+      "option4" : "Beban Sewa (D)		Rp 4.500.000,00 \nSewa dibayar dimuka (K)	Rp 4.500.000,00",
+      "option5" : "Beban Sewa (D)		Rp 3.750.000,00 \nSewa dibayar dimuka (K)	Rp 3.750.000,00",
       "rightAns" : 1,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Perusahaan Garuda Kencana pada tahun 2018 melakukan pembelian perlengkapan kantor sehingga tercatat dalam neraca saldo “akun perlengkapan kantor” senilai Rp 10.000.000,00 lalu lewat pemeriksaan fisik di akhir periode diperoleh persediaan perlengkapan sebesar Rp 2.400.000,00. Maka Jurnal Penyesuainnya adalah…",
+      "option1" : "Beban Perlengkapan Kantor (D)	Rp 10.000.000,00 \nPerlengkapan Kantor (K)		Rp 10.000.000,00",
+      "option2" : "Beban Perlengkapan Kantor (D)	Rp 7.600.000,00 \nPerlengkapan Kantor (K)		Rp 7.600.000,00",
+      "option3" : "Beban Perlengkapan Kantor (D)	Rp 2.400.000,00 \nPerlengkapan Kantor (K)		Rp 2.400.000,00",
+      "option4" : "Perlengkapan Kantor (D)		Rp 2.400.000,00 \nBeban Perlengkapan Kantor (K)	Rp 2.400.000,00",
+      "option5" : "Perlengkapan Kantor (D)		Rp 7.600.000,00 \nBeban Perlengkapan Kantor (K)	Rp 7.600.000,00",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Perusahaan Angkasa pada tahun 2017 sudah mengadakan transaksi sejumlah Rp 65.000.000,00 yang terbagi atas penjualan tunai sebesar Rp 20.000.000,00 dan penjualan kredit sebesar Rp 45.000.000,00. Taksiran untuk piutang tak tertagih adalah 3% per tahun. Maka Jurnal Penyesuaiannya adalah…",
+      "option1" : "Cadangan Kerugian Piutang (D)	Rp 45.000.000,00 \nBeban Kerugian Piutang (K)		Rp 45.000.000,00",
+      "option2" : "Beban Kerugian Piutang (D)		Rp 45.000.000,00 \nCadangan Kerugian Piutang (K)	Rp 45.000.000,00",
+      "option3" : "Beban Kerugian Piutang (D)	Rp 1.350.000,00 \nCadangan Kerugian Piutang (K)	Rp 1.350.000,00",
+      "option4" : "Cadangan Kerugian Piutang (D)	Rp 1.350.000,00 \nBeban Kerugian Piutang (K)		Rp 1.350.000,00",
+      "option5" : "Beban Kerugian Piutang (D)		Rp 3.750.000,00 \nCadangan Kerugian Piutang (K)	Rp 3.750.000,00",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Perusahaan Alba pada tahun 2018 memiliki peralatan yang bersaldo debit sebesar Rp 8.000.000,00. Penyusutan untuk peralatan tersebut sebesar 4% per tahun. Maka jurnal penyesuaian pada 31 Desember 2018 adalah….",
+      "option1" : "Beban peralatan				Rp 240.000,00 \n \t Kas 						Rp 240.000,00",
+      "option2" : "Peralatan					Rp 240.000,00 \n \t Kas						Rp 240.000,00",
+      "option3" : "Beban peralatan				Rp 500.000,00 \n \t Peralatan					Rp 500.000,00",
+      "option4" : "Akumulasi penyusutan peralatan		Rp 320.000,00 \n \t Beban penyusutan peralatan			Rp 320.000,00",
+      "option5" : "Beban penyusutan peralatan		Rp 320.000,00 \n \t Akumulasi penyusutan peralatan		Rp 320.000,00",
+      "rightAns" : 5,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Perusahaan Garuda Kencana membayar asuransi sebesar Rp 240.000,00 umtuk satu tahun kedepan. Data penyesuaian menyebutkan, asuransi dibayar tanggal 1 November 2018 untuk satu tahun. Jurnal penyesuaian yang harus dibuat dari data tersebut adalah.....",
+      "option1" : "Beban Asuransi 			Rp 40.000,00 \n \t Asuransi dibayar dimuka 		Rp 40.000,00",
+      "option2" : "Asuransi dibayar dimuka		 Rp 40.000,00 \n \t Beban asuransi 			Rp 40.000,00",
+      "option3" : "Beban asuransi 			Rp 200.000,00 \n \t Asuransi dibayar di muka 		Rp 200.000,00",
+      "option4" : "Asuransi dibayar di muka 		Rp 200.000,00 \n \t Beban Asuransi 			Rp 200.000,00",
+      "option5" : "Beban asuransi 			Rp 20.000,00 \n \t Asuransi dibayar di muka 		Rp 20.000,00",
+      "rightAns" : 1,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Jaya Sentosa pada tanggal 1 Februari 2018 memiliki saldo akun perlengkapan sebesar Rp. 4.500.000,00. Pada 31 Desember 2018, perlengkapan yang tersisa sebesar 1.500.000,00. Jurnal penyesuaian akhir periodenya adalah…",
+      "option1" : "Beban perlengkapan		Rp 4.500.000,00 \n \t Perlengkapan			Rp 4.500.000,00",
+      "option2" : "Beban perlengkapan		Rp 1.500.000,00 \n \t Perlengkapan			Rp 1.500.000,00",
+      "option3" : "Beban perlengkapan		Rp 3.000.000,00 \n \t Perlengkapan			Rp 3.000.000,00",
+      "option4" : "Perlengkapan			Rp 3.000.000,00 \n \t Kas				Rp 3.000.000,00",
+      "option5" : "Perlengkapan			Rp 1.500.000,00 \n \t Beban perlengkapan		Rp 1.500.000,00",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Kembang Sore menetapkan penyusutan 5% per tahun atas gedung yang dibeli senilai Rp 200.000.000,00. Jurnal penyesuaiannya adalah…..",
+      "option1" : "Beban penyusutan gedung			Rp 1.000.000,00 \n \t Akumulasi penyusutan gedung		Rp 1.000.000,00",
+      "option2" : "Beban penyusutan gedung			Rp 10.000.000,00 \n \t Akumulasi penyusutan gedung		Rp 10.000.000,00",
+      "option3" : "Penyusutan gedung				Rp 1.000.000,00 \n \t Kas						Rp 1.000.000,00",
+      "option4" : "Akumulasi penyusutan gedung		Rp 1.000.000,00 \n \t Penyusutan gedung				Rp 1.000.000,00",
+      "option5" : "Akumulasi penyusutan gedung		Rp 10.000.000,00 \n \t Gedung					Rp 10.000.000,00",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Cahaya Purnama pada 31 Desember 2018 mencatat saldo persediaan barang dagang awal sebesar Rp. 14.000.000,00 dan persediaan barang dagang akhir sebesar Rp. 16.000.000,00 Maka Jurnal Penyesuainnya dengan metode ikhtisar L/R adalah…",
+      "option1" : "Ikhtisar L/R				Rp 14.000.000,00 \n \t Persediaan Barang Dagang		Rp 14.000.000,00 \n Persediaan Barang Dagang		Rp 16.000.000,00 \n \t Ikhtisar L/R				Rp 16.000.000,00",
+      "option2" : "Ikhtisar L/R				Rp 16.000.000,00 \n \t Persediaan Barang Dagang		Rp 16.000.000,00 \n Persediaan Barang Dagang		Rp 14.000.000,00 \n \t Ikhtisar L/R				Rp 14.000.000,00",
+      "option3" : "Persediaan Barang Dagang		Rp 16.000.000,00 \n \t Ikhtisar L/R				Rp 16.000.000,00 \n Ikhtisar L/R				Rp 2.000.000,00 \n \t Persediaan Barang Dagang		Rp 2.000.000,00",
+      "option4" : "Persediaan Barang Dagang		Rp 2.000.000,00 \n \t Ikhtisar L/R				Rp 2.000.000,00 \n Ikhtisar L/R				Rp 14.000.000,00 \n \t Persediaan Barang Dagang		Rp 14.000.000,00",
+      "option5" : "Persediaan Barang Dagang		Rp 14.000.000,00 \n \t Kas					Rp 14.000.000,00 \n Ikhtisar L/R				Rp 16.000.000,00 \n \t Persediaan Barang Dagang		Rp 16.000.000,00",
+      "rightAns" : 1,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Dalam perusahaan dagang menentukan jurnal penyesuaian dapat menggunakan dua metode yaitu? ",
+      "option1" : "Periodik dan Perpetual",
+      "option2" : "Double dan Triple",
+      "option3" : "Single step dan multiple steps",
+      "option4" : "Ikhtisar L/R dan HPP",
+      "option5" : "Langsung dan tidak langsung",
+      "rightAns" : 4,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Langgeng Jaya menuliskan perkiraan persediaan barang dagang sebesar Rp 10.000.000,00. Sedangkan pada data penyesuaian tertulis bahwa persediaan barang tersisa Rp 9.000.000,00. Jurnal penyesuaiannya adalah…",
+      "option1" : "Persediaan barang dagang		Rp 9.000.000,00 \n \t Ikhtisar rugi/ laba			Rp 9.000.000,00 \n Ikhtisar rugi/ laba			Rp 10.000.000,00 \n \t Persediaan barang dagang		Rp 10.000.000,00",
+      "option2" : "Persediaan barang dagang		Rp 10.000.000,00 \n \t Ikhtisar rugi/ laba			Rp 10.000.000,00 \n Ikhtisar rugi/ laba			Rp 9.000.000,00 \n \t Persediaan barang dagang		Rp 9.000.000,00",
+      "option3" : "Persediaan barang dagang		Rp 10.000.000,00 \n \t Ikhtisar rugi/ laba			Rp 10.000.000,00 \n Ikhtisar rugi/ laba			Rp 1.000.000,00 \n \t Persediaan barang dagang		Rp 1.000.000,00",
+      "option4" : "Persediaan barang dagang		Rp 1.000.000,00 \n \t Ikhtisar rugi/ laba			Rp 1.000.000,00",
+      "option5" : "Ikhtisar rugi/ laba			Rp 1.000.000,00 \n \t Persediaan barang dagang		Rp 1.000.000,00",
+      "rightAns" : 1,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Tuan Abud pada tanggal 1 Oktober 2018 menerima pembayaran sewa gedung senilai Rp. 12.000.000,00 untuk satu tahun kedepan. Maka jurnal penyesuaian pada 31 Desember 2018 apabila transaksi dicatat sebagai utang adalah…",
+      "option1" : "Kas					Rp 12.000.000,00 \n \t Sewa Diterima Dimuka		Rp 12.000.000,00",
+      "option2" : "Sewa Diterima Dimuka		Rp 12.000.000,00 \n \t Kas					Rp 12.000.000,00",
+      "option3" : "Sewa Diterima Dimuka		Rp 3.000.000,00 \n \t Pendapatan Sewa			Rp 3.000.000,00",
+      "option4" : "Pendapatan Sewa			Rp 9.000.000,00 \n \t Sewa Diterima Dimuka		Rp 9.000.000,00",
+      "option5" : "Beban Sewa				Rp 9.000.000,00 \n \t Kas					Rp 9.000.000,00",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Pada buku besar PD Tuk Fashion periode 31 Desember 2019 terlihat saldo akun piutang sebesar Rp 20.000.000,00 dan cadangan penghapusan piutang saldo debet sebesar Rp 300.000,00 Taksiran piutang yang tidak dapat ditagih ditetapkan sebesar 3% dari saldo piutang. Dengan demikian jurnal penyesuaian yang dibuat pada tanggal 31 Desember 2019 adalah ...",
+      "option1" : "Biaya Kerugian Piutang 			Rp 600.000,00 \n \t Cadangan Kerugian Piutang 			Rp 600.000,00",
+      "option2" : "Biaya Kerugian Piutang 			Rp 300.000,00 \n \t Cadangan Kerugian Piutang 			Rp 300.000,00",
+      "option3" : "Biaya Kerugian Piutang 			Rp 900.000,00 \n \t Cadangan Kerugian Piutang 		Rp 900.000,00",
+      "option4" : "Biaya Kerugian Piutang 			Rp 20.000.000,00 \n \t Cadangan Kerugian Piutang 			Rp 20.000.000,00",
+      "option5" : "Biaya Kerugian Piutang 			Rp 9.000.000,00 \n \t Cadangan Kerugian Piutang 		        Rp 9.000.000,00",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Endah Tama pada neraca saldo per 31 Desember 2019 menunjukkan saldo debet sebesar Rp 80.000.000,00. Sedangkan pada data penyesuaian menyebutkan bahwa masih terdapat sewa yang belum jatuh tempo sebesar Rp 45.000.000,00. Dari informasi tersebut, maka jurnal penyesuaian yang diperlukan 31 Desember 2019 apabila menggunakan metode L/R adalah ...",
+      "option1" : "Beban Sewa				Rp45.000.000,00 \n \t Sewa Dibayar Dimuka			Rp45.000.000,00",
+      "option2" : "Sewa Dibayar Dimuka		Rp45.000.000,00 \n \t Beban Sewa 				Rp45.000.000,00",
+      "option3" : "Beban Sewa 				Rp 35.000.000,00 \n \t Kas 					Rp35.000.000,00",
+      "option4" : "Sewa dibayar dimuka			Rp 35.000.000,00 \n \t Beban sewa 				Rp 35.000.000,00",
+      "option5" : "Beban sewa 				Rp 35.000.000,00 \n \t Sewa dibayar dimuka 			Rp 35.000.000,00",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Pada akhir tahun 2019 PD Nusantara membeli sebuah mesin dengan harga pokok Rp 35.000.000,00 nilai residu Rp 5.000.000,00, umur ekonomis 6 tahun, penyusutan dihitung dengan metode garis lurus. Besarnya beban penyusutan pada akhir tahun 2022 adalah…",
+      "option1" : "Rp. 25.000.000,-",
+      "option2" : "Rp. 20.000.000,-",
+      "option3" : "Rp. 15.000.000,-",
+      "option4" : "Rp. 10.000.000,-",
+      "option5" : "Rp. 5.000.000,-",
+      "rightAns" : 5,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Nusantara pada tahun 2015 menyewa sebuah gedung senilai Rp 400.000.000,00. Gedun tersebut memiliki nilai residu Rp 40.000.000,00. Umur ekonomis dari gedung adalah 9 tahun. Apabila penyusutan menggunakan metode straight line method, maka besarnya akumulasi penyusutan pada akhir tahun 2020 adalah .....",
+      "option1" : "Rp 40.000.000,00",
+      "option2" : "Rp 80.000.000,00",
+      "option3" : "Rp 120.000.000,00",
+      "option4" : "Rp 160.000.000,00",
+      "option5" : "Rp 200.000.000,00",
+      "rightAns" : 5,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Dibawah ini terdapat rekening-rekening dalam perusahaan dagang yang memerlukan penyesuaian yaitu…",
+      "option1" : "Beban Sewa, Beban Asuransi, Kas",
+      "option2" : "Pendapatan Sewa, Kas, Utang Usaha",
+      "option3" : "Beban Yang Masih Harus Dibayar, Pendapatan Diterima Di Muka, Kerugian Piutang",
+      "option4" : "Prive, Depresiasi Aset Tetap, Utang Usaha",
+      "option5" : "PPN, Prive, Kas",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Berikut adalah akun yang harus di sesuaikan, kecuali… ",
+      "option1" : "Modal",
+      "option2" : "Pendapatan Yang Masih Harus Diterima",
+      "option3" : "Perlengkapan",
+      "option4" : "Beban Asuransi",
+      "option5" : "Pendapatan Bunga",
+      "rightAns" : 1,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Besar kecilnya penyusutan aset dipengaruhi oleh bebrapa factor dibawah ini, kecuali…",
+      "option1" : "Manfaat secara menguntungkan yang dihasilkan oleh aktiva dalam rentang waktu tertentu ",
+      "option2" : "Ketidakmampuan asset tetap untuk memenuhi kebutuhan produksi",
+      "option3" : "Penggunaan Metode penyusutan",
+      "option4" : "Harga beli asset",
+      "option5" : "Taksiran harga jual aset tetap yang tidak terpakai lagi",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Kunto Aji membayar gaji karyawan sebesar Rp 50.000,00 per hari. Gaji tersebut dibayarkan setiap emam hari sekali pada hari Sabtu. Pada akhir tahun terdapat gaji karyawan yang belum dibayar selama 6 hari. Jurnal penyesuaian yang benar adalah ….",
+      "option1" : "Utang gaji		Rp 300.000,00 \n \t Beban gaji		Rp 300.000,00",
+      "option2" : "Beban gaji		Rp 300.000,00 \n \t Kas			Rp 300.000,00",
+      "option3" : "Beban gaji		Rp 300.000,00 \n \t Utang gaji		Rp 300.000,00",
+      "option4" : "Beban gaji		Rp 50.000,00 \n \t Utang gaji		Rp 50.000,00",
+      "option5" : "Utang gaji		Rp 50.000,00 \n \t Beban gaji		Rp 50.000,00",
+      "rightAns" : 3,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Dalam daftar saldo 31 Desember 2018 Akun Pajak Penghasilan sebesar Rp 4.000.000,00. Pada tahun ini ditetapkan oleh kantor pajak bahwa besarnya pajak Rp 5.500.000,00 dari data ini maksudnya perusahaan sudah membayar ke kantor pajak sebesar Rp 4.000.000,00 dan oleh kantor pajak pada akhir periode ditetapkan pajak yang harus dibayar perusahaan sebesar Rp5.500.000,00. Berarti perusahaan masih menanggung beban pajak Rp 1.500.000,00. Jurnal penyesuaian yang dibuat perusahaan adalah?",
+      "option1" : "Pajak Penghasilan		Rp 1.500.000,00 \n \t Utang Pajak 			Rp 1.500.000,00",
+      "option2" : "Pajak Penghasilan		Rp 5.500.000,00 \n \t Utang Pajak			Rp 5.500.000,00",
+      "option3" : "Pajak Penghasilan		Rp 4.000.000,00 \n \t Piutang Pajak			Rp 4.000.000,00",
+      "option4" : "Utang Pajak			Rp 1.500.000,00 \n \t Pajak Penghasilan		Rp 1.500.000,00",
+      "option5" : "Piutang Pajak  		Rp 4.000.000,00 \n \t Pajak Penghasilan		Rp 4.000.000,00",
+      "rightAns" : 1,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Pada tanggal 1 Januari 2019 dibayar beban sewa untuk 1 tahun sebesar Rp xxx. Pada saat pembayaran diakui sebagai beban. Jurnal penyesuaian akhir tahun adalah…",
+      "option1" : "Beban Sewa (D), Persekot Sewa (K)",
+      "option2" : "Persekot Sewa (D), Beban Sewa (K)",
+      "option3" : "Persekot Sewa (D), Kas (K)",
+      "option4" : "Kas (D), Persekot Sewa (K)",
+      "option5" : "Persekot Sewa (D), Utang (K)",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Lentera memiliki akun peralatan kantor yang menunjukan saldo sebesar Rp 4.000.000,00. Penyusutan ditetapkan oleh perusahaan sebesar 5% per tahun. Maka jurnal penyusutan pada akhir periode akan menunjukan saldo akun beban penyusutan sebesar…..",
+      "option1" : "Debit Rp 2.000.000,00",
+      "option2" : "Debit Rp 200.000,00",
+      "option3" : "Debit Rp 20.000,00",
+      "option4" : "Kredit Rp 200.000,00",
+      "option5" : "Kredit Rp 20.000,00",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "Tanggal 24 Juni 2019 PD Endah Tama membeli perlengkapan kantor seharga Rp 12.000.000,00 secara tunai. Tanggal 31 Desember 2019 diketahui perlengkapan sudah terpakai sebesar Rp 10.000.000,00. Jurnal penyesuaian pada akhir periode adalah….",
+      "option1" : "Beban perlengkapan kantor		Rp 2.000.000,00 \n \t Perlengkapan kantor			Rp 2.000.000,00",
+      "option2" : "Beban perlengkapan kantor		Rp 10.000.000,00 \n \t Perlengkapan kantor			Rp 10.000.000,00",
+      "option3" : "Perlengkapan kantor			Rp 10.000.000,00 \n \t Kas					Rp 10.000.000,00",
+      "option4" : "Perlengkapan kantor			Rp 10.000.000,00 \n \t Beban perlengkapan kantor		Rp 10.000.000,00",
+      "option5" : "Perlengkapan kantor			Rp 12.000.000,00 \n \t Beban perlengkapan kantor		Rp 12.000.000,00",
+      "rightAns" : 2,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "31 Desember 2018 Akun Pajak Penghasilan menunjukan saldo sebesar Rp 700.000,00. Namun pada tahun 2019 kantor pajak menetapkan pajak sebesar Rp 800.000,00. Perusahaan telah membayar pajak sebesar Rp 700.000,00 kekantor pajak. Maka jurnal penyesuaian yang  harus dibuat oleh perusahaan adalah…",
+      "option1" : "Piutang pajak			Rp 100.000,00 \n \t Pajak penghasilan		Rp 100.000,00",
+      "option2" : "Utang pajak			Rp 800.000,00 \n \t Kas				Rp 800.000,00",
+      "option3" : "Pajak penghasilan		Rp 800.000,00 \n \t Kas				Rp 800.000,00",
+      "option4" : "Pajak penghasilan		Rp 100.000,00 \n \t Utang pajak			Rp 100.000,00",
+      "option5" : "Pajak penghasilan 		Rp 100.000,00 \n \t Kas				Rp 100.000,00",
+      "rightAns" : 4,
+      "key_quiz" : "key"
+    },
+    {
+      "question": "PD Tuan Abud pada tahun 2019 membeli kendaraan dengan harga perolehan Rp 300.000.000,00 dengan umur ekonomis 20 tahun. Kendaraan memiliki nilai residu Rp 40.000.000,00 dan disusutkan menggunakan metode garis lurus. Jurnal penyesuaian 31 Desember 2019 adalah…",
+      "option1" : "Akumulasi penyusutan kendaraan		Rp 13.000.000,00 \n \t Beban penyusutan kendaraan			Rp 13.000.000,00",
+      "option2" : "Kendaraan					Rp 40.000.000,00 \n \t Kas 						Rp 40.000.000,00",
+      "option3" : "Beban penyusutan kendaraan		Rp 13.000.000,00 \n \t Akumulasi penyusutan kendaraan		Rp 13.000.000,00",
+      "option4" : "Akumulasi penyusutan kendaraan		Rp 13.000.000,00 \n \t Beban penyusutan kendaraan			Rp 13.000.000,00",
+      "option5" : "Beban penyusutan kendaraan			Rp 40.000.000,00 \n \t Akumulasi penyusutan kendaraan		Rp 40.000.000,00",
+      "rightAns" : 3,
       "key_quiz" : "key"
     }
   ]

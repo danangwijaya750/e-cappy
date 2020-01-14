@@ -18,6 +18,7 @@ import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
 import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
 import id.infiniteuny.mediapembelajaran.ui.materi.MateriActivity
+import id.infiniteuny.mediapembelajaran.ui.rekap.RekapNilaiActivity
 import id.infiniteuny.mediapembelajaran.ui.setting.SettingActivity
 import id.infiniteuny.mediapembelajaran.ui.soal.SoalActivity
 import kotlinx.android.synthetic.main.activity_main.tv_username
@@ -39,20 +40,9 @@ class TeacherDashActivity : AppCompatActivity() {
         supportActionBar?.hide()
         initDrawer()
         tv_username.text= Pref(this).user_name
-        btn_kikd.setOnClickListener {
-            //startActivity(Intent(this, SettingActivity::class.java))
-        }
-        btn_soal.setOnClickListener {
-            startActivity(Intent(this, SoalActivity::class.java))
-        }
+
         btn_materi.setOnClickListener {
-            startActivity(Intent(this, MateriActivity::class.java))
-        }
-        btn_petunjuk.setOnClickListener {
-            startActivity(Intent(this, ManualActivity::class.java))
-        }
-        tv_settings.setOnClickListener {
-            startActivity(Intent(this, SettingActivity::class.java))
+            startActivity(Intent(this, RekapNilaiActivity::class.java))
         }
         tv_keluar.setOnClickListener {
             val fAuth= FirebaseAuth.getInstance()

@@ -74,7 +74,7 @@
 
                 <GridLayout
                     android:id="@+id/grid_layout"
-                    android:layout_width="match_parent"
+                    android:layout_width="170dp"
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
                     android:alignmentMode="alignMargins"
@@ -82,7 +82,6 @@
                     android:columnOrderPreserved="false"
                     android:orientation="vertical"
                     android:rowCount="2"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_username">
 
@@ -95,7 +94,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_rowWeight="1"
-                        app:cardBackgroundColor="@color/softRed"
+                        app:cardBackgroundColor="#42FFDE"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="1dp">
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,7 +113,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="5dp"
-                                android:text="Materi"
+                                android:text="Rekap Nilai"
                                 android:layout_margin="10dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -123,124 +122,6 @@
                                 android:textStyle="bold" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_kikd"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_columnWeight="1"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_rowWeight="1"
-                        app:cardBackgroundColor="@color/lightBlue"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="1dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
-                            <ImageView
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                android:layout_margin="10dp"
-                                android:layout_width="50dp"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_kikd"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp"
-                                android:text="KI KD"
-                                android:layout_margin="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:textColor="#fff"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_soal"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_columnWeight="1"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_rowWeight="1"
-                        app:cardBackgroundColor="@color/softYellow"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="1dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
-                            <ImageView
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                android:layout_margin="10dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_soal"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp"
-                                android:text="Soal"
-                                android:layout_margin="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:textColor="#fff"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_petunjuk"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_columnWeight="1"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_rowWeight="1"
-                        app:cardBackgroundColor="@color/darkBlue"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="1dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
-                            <ImageView
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                android:layout_margin="10dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_petunjuk"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp"
-                                android:text="Petunjuk"
-                                android:layout_margin="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:textColor="#fff"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
 
                 </GridLayout>
 

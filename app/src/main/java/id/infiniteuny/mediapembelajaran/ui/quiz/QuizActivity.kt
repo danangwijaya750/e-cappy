@@ -112,6 +112,8 @@ class QuizActivity : AppCompatActivity(), QuizView {
 
     }
 
+    override fun context(): Context =this
+
     private fun loadQuestion() {
         tv_question.text = dataQuiz[questionPos].question
         radioButton1.text = dataQuiz[questionPos].option1

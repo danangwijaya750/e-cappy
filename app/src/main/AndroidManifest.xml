@@ -12,7 +12,8 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.kikd.KikdActivity"></activity>
+        <activity android:name=".ui.rekap.RekapNilaiActivity"></activity>
+        <activity android:name=".ui.kikd.KikdActivity" />
         <activity android:name=".ui.grade.StudentGradesActivity" />
         <activity android:name=".ui.teacher.TeacherDashActivity" />
         <activity android:name=".ui.quiz.QuizResultActivity" />

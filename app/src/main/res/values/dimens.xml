@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_row_name">100dp</dimen>
+    <dimen name="tv_row_score">30dp</dimen>
+    <dimen name="tv_ts">18sp</dimen>
+</resources>
