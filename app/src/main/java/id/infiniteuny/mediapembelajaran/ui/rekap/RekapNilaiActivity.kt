@@ -55,9 +55,6 @@ class RekapNilaiActivity : AppCompatActivity() {
     }
 
     private fun showData(){
-        val wName=resources.getDimensionPixelSize(R.dimen.tv_row_name)
-        val wScore=resources.getDimensionPixelSize(R.dimen.tv_row_score)
-        val tvSize=resources.getDimension(R.dimen.tv_ts)
         dataGrades.forEachIndexed{index, scoreModel ->
             val tbRow=TableRow(this)
             val lParams=TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT)

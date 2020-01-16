@@ -7,11 +7,10 @@ import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager.LayoutParams
-import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.marginStart
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.ui.quiz.QuizActivity
 import id.infiniteuny.mediapembelajaran.ui.quiz.QuizOnlineActivity
@@ -40,13 +39,62 @@ class SoalActivity : AppCompatActivity() {
         }
 
         btn_latihan.setOnClickListener {
-            startQuiz("train")
+            val builder = AlertDialog.Builder(this)
+            val v = layoutInflater.inflate(R.layout.layout_instruction, null)
+            val b =v.findViewById<LinearLayout>(R.id.root_lay)
+            b.setBackgroundColor(resources.getColor(R.color.softYellow))
+            val tv = v.findViewById<TextView>(R.id.tv_help)
+            tv.text = "- Berdoalah sebelum mengerjakan soal dan pastikan anda sudah belajar\n" +
+                    "- Siapkan Kalkulator\n" +
+                    "- Soal berbentuk pilihan ganda, sehingga pilih salah satu jawaban yang benar\n" +
+                    "- Skor untuk jawaban benar adalah 5\n" +
+                    "- Skor untuk jawaban salah adalah 0\n" +
+                    "- Jumlah soal 30 dengan waktu 45 menit\n" +
+                    "- Kerjakan mandiri untuk mengukur kemampuan anda"
+
+            builder.apply {
+                setTitle("Petunjuk Pengerjaan Soal : ")
+                setView(v)
+                setPositiveButton("Ok") { _, _ ->
+                    startQuiz("train")
+                }
+                setNegativeButton("Batal") { _, _ ->
+
+                }
+            }
+            builder.create().show()
+
         }
 
         btn_uji.setOnClickListener {
-            val intent =Intent(this@SoalActivity,QuizOnlineActivity::class.java)
-            intent.putExtra("key","Key1-Generated")
-            startActivity(intent)
+
+            val builder = AlertDialog.Builder(this)
+            val v = layoutInflater.inflate(R.layout.layout_instruction, null)
+            val b =v.findViewById<LinearLayout>(R.id.root_lay)
+            b.setBackgroundColor(resources.getColor(R.color.lightBlue))
+            val tv = v.findViewById<TextView>(R.id.tv_help)
+            tv.text = "- Berdoalah sebelum mengerjakan soal dan pastikan anda sudah belajar\n" +
+                    "- Siapkan Kalkulator\n" +
+                    "- Soal berbentuk pilihan ganda, sehingga pilih salah satu jawaban yang benar\n" +
+                    "- Skor untuk jawaban benar adalah 5\n" +
+                    "- Skor untuk jawaban salah adalah 0\n" +
+                    "- Jumlah soal 20 dengan waktu 15 menit\n" +
+                    "- Kerjakan mandiri untuk mengukur kemampuan anda"
+
+            builder.apply {
+                setTitle("Petunjuk Pengerjaan Soal : ")
+                setView(v)
+                setPositiveButton("Ok") { _, _ ->
+                    val intent = Intent(this@SoalActivity, QuizOnlineActivity::class.java)
+                    intent.putExtra("key", "Key1-Generated")
+                    startActivity(intent)
+                }
+                setNegativeButton("Batal") { _, _ ->
+
+                }
+            }
+            builder.create().show()
+
 //            val input=EditText(this)
 //            val builder=AlertDialog.Builder(this)
 //            builder.apply {
