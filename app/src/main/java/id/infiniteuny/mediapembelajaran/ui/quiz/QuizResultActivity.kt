@@ -1,5 +1,6 @@
 package id.infiniteuny.mediapembelajaran.ui.quiz
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
@@ -13,8 +14,10 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import id.infiniteuny.mediapembelajaran.R
+import id.infiniteuny.mediapembelajaran.ui.pembahasan.ActivityPembahasan
 import id.infiniteuny.mediapembelajaran.utils.logD
 import kotlinx.android.synthetic.main.activity_quiz_result.btn_back
+import kotlinx.android.synthetic.main.activity_quiz_result.btn_to_bahas
 import kotlinx.android.synthetic.main.activity_quiz_result.btn_to_home
 import kotlinx.android.synthetic.main.activity_quiz_result.pieChart
 import kotlinx.android.synthetic.main.activity_quiz_result.root_lay
@@ -47,6 +50,13 @@ class QuizResultActivity : AppCompatActivity() {
         }
         btn_to_home.setOnClickListener {
             onBackPressed()
+        }
+        btn_to_bahas.setOnClickListener {
+            val caller=intent.getStringExtra("caller")
+            val intent= Intent(this,ActivityPembahasan::class.java)
+            intent.putExtra("caller",caller)
+            startActivity(intent)
+            finish()
         }
     }
 

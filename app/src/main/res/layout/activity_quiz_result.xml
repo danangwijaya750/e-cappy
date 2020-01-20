@@ -102,6 +102,18 @@
             android:text="Beranda"
             android:background="@drawable/btn_radius_blue"
             />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#fff"
+            android:id="@+id/btn_to_bahas"
+            android:text="Pembahasan"
+            android:background="@drawable/btn_radius_green"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

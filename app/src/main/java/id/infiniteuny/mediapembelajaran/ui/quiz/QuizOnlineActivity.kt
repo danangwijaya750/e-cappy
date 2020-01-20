@@ -201,12 +201,12 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     override fun context(): Context =this
 
     private fun loadQuestion() {
-        tv_question.text = dataQuiz[questionPos].question
-        radioButton1.text = dataQuiz[questionPos].option1
-        radioButton2.text = dataQuiz[questionPos].option2
-        radioButton3.text = dataQuiz[questionPos].option3
-        radioButton4.text = dataQuiz[questionPos].option4
-        radioButton5.text = dataQuiz[questionPos].option5
+        tv_question.text = dataQuiz[questionPos].question.replace("\\n","\n",false)
+        radioButton1.text = dataQuiz[questionPos].option1.replace("\\n","\n",false)
+        radioButton2.text = dataQuiz[questionPos].option2.replace("\\n","\n",false)
+        radioButton3.text = dataQuiz[questionPos].option3.replace("\\n","\n",false)
+        radioButton4.text = dataQuiz[questionPos].option4.replace("\\n","\n",false)
+        radioButton5.text = dataQuiz[questionPos].option5.replace("\\n","\n",false)
         questionCount.text = "${questionPos + 1} / ${dataQuiz.size}"
     }
 
