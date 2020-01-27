@@ -41,30 +41,52 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/pg_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/quiz_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
             <ProgressBar
                 android:id="@+id/progressbar"
                 style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="25sp"
+                android:layout_marginTop="15dp"
                 android:max="100"
                 android:progress="0"
-                android:layout_width="match_parent"
-                android:layout_marginTop="15dp"
-                android:layout_height="25sp"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/timeCounter"
                 android:layout_width="wrap_content"
@@ -73,7 +95,10 @@
                 android:padding="10dp"
                 android:text="00:20"
                 android:textColor="#ffff"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/questionCount"
@@ -82,12 +107,14 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/softYellow"
+                android:background="@color/lightBlue"
                 android:padding="10dp"
                 android:text="1/X"
                 android:textColor="#ffff"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
@@ -96,10 +123,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/timeCounter"
                 android:layout_marginTop="19dp"
-                android:padding="5dp"
                 android:gravity="left"
+                android:padding="5dp"
                 android:text="This is Question \nThis is Question"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progressbar" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"
@@ -107,7 +137,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="20dp"
-                android:padding="10dp">
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_question">
 
                 <RadioButton
                     android:id="@+id/radioButton1"
@@ -150,11 +183,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_margin="20dp"
                 android:background="@drawable/btn_radius_blue"
-                android:text="Selanjutnya"
-                android:paddingStart="5dp"
                 android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:text="Selanjutnya"
                 android:textColor="@android:color/white"
-                android:textSize="15sp" />
-        </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.view.Window
 import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
+import kotlinx.android.synthetic.main.activity_detail_materi.btn_back
 import kotlinx.android.synthetic.main.activity_detail_materi.web_view
 import kotlinx.android.synthetic.main.activity_quiz_result.tool_bar
 
@@ -25,6 +26,9 @@ class ActivityPembahasan : AppCompatActivity() {
         }
         supportActionBar?.hide()
         loadData()
+        btn_back.setOnClickListener {
+            finish()
+        }
     }
 
     private fun loadData() {
@@ -38,5 +42,10 @@ class ActivityPembahasan : AppCompatActivity() {
                 web_view.loadUrl("file:///android_res/raw/pmbhs_train")
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }
