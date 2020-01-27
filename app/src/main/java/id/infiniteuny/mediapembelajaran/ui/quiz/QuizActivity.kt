@@ -19,9 +19,7 @@ import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
-import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
-import id.infiniteuny.mediapembelajaran.ui.quiz.QuizOnlineActivity.Companion
 import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
 import kotlinx.android.synthetic.main.activity_quiz.btn_submit
@@ -61,7 +59,7 @@ class QuizActivity : AppCompatActivity(), QuizView {
     private var onBackPressedTime: Long = 0
 
     private var pgBarControl = 1
-    private var keyQuiz=""
+    private var keyQuiz = ""
 
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +91,13 @@ class QuizActivity : AppCompatActivity(), QuizView {
         }
         btn_submit.setOnClickListener {
 
-            checkAnswer()
+            if (radioButton1.isChecked || radioButton2.isChecked || radioButton3.isChecked
+                || radioButton4.isChecked || radioButton5.isChecked
+            ) {
+                checkAnswer()
+            } else {
+                toastCnt("Pilih 1 Jawaban Dahulu")
+            }
 
         }
     }
@@ -169,15 +173,13 @@ class QuizActivity : AppCompatActivity(), QuizView {
         loadQuestion()
     }
 
-    override fun resultUpload(state: Boolean,score:Int) {
-
+    override fun resultUpload(state: Boolean, score: Int) {
     }
 
     override fun resultLoad(state: Boolean) {
-
     }
 
-    override fun context(): Context =this
+    override fun context(): Context = this
 
     private fun loadQuestion() {
         tv_question.text = dataQuiz[questionPos].question
@@ -186,7 +188,7 @@ class QuizActivity : AppCompatActivity(), QuizView {
         radioButton3.text = dataQuiz[questionPos].option3
         radioButton4.text = dataQuiz[questionPos].option4
         radioButton5.text = dataQuiz[questionPos].option5
-        questionCount.text = "${questionPos+1} / ${dataQuiz.size}"
+        questionCount.text = "${questionPos + 1} / ${dataQuiz.size}"
     }
 
     private fun checkAnswer() {
@@ -200,25 +202,26 @@ class QuizActivity : AppCompatActivity(), QuizView {
                 //toastCnt("false")
             }
             questionPos++
-            if(questionPos<=dataQuiz.size-1) {
+            if (questionPos <= dataQuiz.size - 1) {
                 loadQuestion()
-            }else{
-             showResultQuiz()
+            } else {
+                showResultQuiz()
 //                toastCnt(score.toString())
             }
         }
-
     }
+
     private fun showResultQuiz() {
         countDownTimer!!.cancel()
-        val intent= Intent(this,QuizResultActivity::class.java)
+        val intent = Intent(this, QuizResultActivity::class.java)
         logD("score $score")
-        score=(score*100)/dataQuiz.size
-        intent.putExtra("caller","practice")
-        intent.putExtra("score",score)
+        score = (score * 100) / dataQuiz.size
+        intent.putExtra("caller", "practice")
+        intent.putExtra("score", score)
         startActivity(intent)
         finish()
     }
+
     companion object {
 
         val FINAL_SCORE = "FinalScore"

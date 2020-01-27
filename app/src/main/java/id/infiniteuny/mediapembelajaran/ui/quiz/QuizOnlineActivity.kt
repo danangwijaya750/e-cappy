@@ -90,8 +90,12 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             onBackPressed()
         }
         btn_submit.setOnClickListener {
-
-            checkAnswer()
+            if(radioButton1.isChecked||radioButton2.isChecked||radioButton3.isChecked
+                ||radioButton4.isChecked||radioButton5.isChecked) {
+                checkAnswer()
+            }else{
+                toastCnt("Pilih 1 Jawaban Dahulu")
+            }
 
         }
     }
