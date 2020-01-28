@@ -52,15 +52,10 @@
         android:layout_columnWeight="1"
         android:layout_margin="10dp"
         app:cardCornerRadius="5dp"
+        app:cardElevation="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tool_bar"
-        app:cardElevation="1dp">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-       >
+        app:layout_constraintTop_toBottomOf="@id/tool_bar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,6 +70,7 @@
                 android:padding="5dp">
 
                 <TextView
+                    android:id="@+id/tv_fld_name"
                     android:layout_width="100dp"
                     android:layout_column="0"
                     android:layout_weight="1"
@@ -84,13 +80,14 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_fld_score"
                     android:layout_width="30dp"
                     android:layout_column="1"
                     android:layout_weight="1"
                     android:text="Score"
                     android:textColor="#ffff"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </TableRow>
 
             <TableLayout
@@ -101,8 +98,15 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="0dp"
                 android:orientation="vertical"
-                android:padding="5dp"/>
+                android:padding="5dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_margin="5dp"
+                android:id="@+id/rv_nilai"
+                tools:listitem="@layout/item_nilai"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
-    </ScrollView>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
