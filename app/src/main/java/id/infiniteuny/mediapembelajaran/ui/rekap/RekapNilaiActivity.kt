@@ -16,6 +16,7 @@ import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.base.RvAdapter
 import id.infiniteuny.mediapembelajaran.data.ScoreModel
 import id.infiniteuny.mediapembelajaran.utils.logD
+import kotlinx.android.synthetic.main.activity_rekap_nilai.btn_back
 import kotlinx.android.synthetic.main.activity_rekap_nilai.rv_nilai
 import kotlinx.android.synthetic.main.activity_rekap_nilai.tb_layout
 import kotlinx.android.synthetic.main.activity_rekap_nilai.tv_fld_name
@@ -64,6 +65,9 @@ class RekapNilaiActivity : AppCompatActivity() {
             isScoreDesc=!isScoreDesc
             showData()
         }
+        btn_back.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun getGrades(){
@@ -107,6 +111,11 @@ class RekapNilaiActivity : AppCompatActivity() {
 //            tbRow.addView(tvScore)
 //            tb_layout.addView(tbRow,index)
 //        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 }
