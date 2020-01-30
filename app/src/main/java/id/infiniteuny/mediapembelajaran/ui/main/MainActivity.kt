@@ -34,6 +34,7 @@ import kotlinx.android.synthetic.main.activity_main.btn_petunjuk
 import kotlinx.android.synthetic.main.activity_main.btn_profile
 import kotlinx.android.synthetic.main.activity_main.btn_soal
 import kotlinx.android.synthetic.main.activity_main.drawerLayout
+import kotlinx.android.synthetic.main.activity_main.iv_sound
 import kotlinx.android.synthetic.main.activity_main.tv_keluar
 import kotlinx.android.synthetic.main.activity_main.tv_settings
 import kotlinx.android.synthetic.main.activity_main.tv_username
@@ -107,7 +108,19 @@ class MainActivity : AppCompatActivity() {
             }
             builder.create().show()
         }
+        iv_sound.setOnClickListener {
+            serviceControl()
+            setIvSound()
+        }
         serviceControl()
+        setIvSound()
+    }
+
+    private fun setIvSound(){
+        when(Pref(this).sound_setting){
+            true->{iv_sound.setImageResource(R.drawable.mute)}
+            false->{iv_sound.setImageResource(R.drawable.unmute)}
+        }
     }
 
     private fun initDrawer() {
