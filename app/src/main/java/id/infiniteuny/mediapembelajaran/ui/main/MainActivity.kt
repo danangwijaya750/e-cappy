@@ -1,6 +1,8 @@
 package id.infiniteuny.mediapembelajaran.ui.main
 
 import android.annotation.SuppressLint
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
@@ -19,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.R.string
 import id.infiniteuny.mediapembelajaran.data.Pref
+import id.infiniteuny.mediapembelajaran.service.SoundService
 import id.infiniteuny.mediapembelajaran.ui.kikd.KikdActivity
 import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
 import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
@@ -40,6 +43,8 @@ import kotlinx.android.synthetic.main.activity_main.tv_username
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var soundIntent:Intent
+
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         initDrawer()
         tv_username.text= Pref(this).user_name
+        soundIntent=Intent(this,SoundService::class.java)
         btn_kikd.setOnClickListener {
             startActivity(Intent(this, KikdActivity::class.java))
         }
@@ -103,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             }
             builder.create().show()
         }
+        serviceControl()
 
 
     }
@@ -128,6 +135,30 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    private fun serviceControl(){
+        when(Pref(this).sound_setting){
+            true->{
+                startService(soundIntent)
+            }
+            false->{
+                stopService(soundIntent)
+            }
+        }
+        Pref(this).sound_setting=!Pref(this).sound_setting
+    }
+
+    private fun isServiceRunning(serviceClass: Class<*>): Boolean {
+        val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+
+        for (service in activityManager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.name == service.service.className) {
+
+                return true
+            }
+        }
+        return false
     }
 
 

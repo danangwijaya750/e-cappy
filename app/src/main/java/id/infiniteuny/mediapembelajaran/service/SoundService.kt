@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
+import id.infiniteuny.mediapembelajaran.R
 
 /**
  * Created by wijaya on 24/01/20
@@ -16,12 +17,13 @@ class SoundService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-       // mp=MediaPlayer.create(this,R.raw)
+        mp=MediaPlayer.create(this, R.raw.backsound)
         mp.isLooping=true
     }
 
     override fun onDestroy() {
         mp.stop()
+        mp.release()
         super.onDestroy()
     }
 
