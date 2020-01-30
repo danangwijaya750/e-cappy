@@ -1,8 +1,8 @@
 package id.infiniteuny.mediapembelajaran.ui.setting
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import kotlinx.android.synthetic.main.activity_setting.btn_back
 

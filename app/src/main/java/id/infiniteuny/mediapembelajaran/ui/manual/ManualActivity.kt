@@ -2,10 +2,10 @@ package id.infiniteuny.mediapembelajaran.ui.manual
 
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager.LayoutParams
+import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import kotlinx.android.synthetic.main.activity_setting.btn_back
 

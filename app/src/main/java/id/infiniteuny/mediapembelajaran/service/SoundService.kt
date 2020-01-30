@@ -11,14 +11,14 @@ import id.infiniteuny.mediapembelajaran.R
  */
 class SoundService : Service() {
 
-    lateinit var mp:MediaPlayer
+    lateinit var mp: MediaPlayer
 
-    override fun onBind(p0: Intent?): IBinder? =null
+    override fun onBind(p0: Intent?): IBinder? = null
 
     override fun onCreate() {
         super.onCreate()
-        mp=MediaPlayer.create(this, R.raw.backsound)
-        mp.isLooping=true
+        mp = MediaPlayer.create(this, R.raw.backsound)
+        mp.isLooping = true
     }
 
     override fun onDestroy() {
@@ -31,5 +31,4 @@ class SoundService : Service() {
         mp.start()
         return super.onStartCommand(intent, flags, startId)
     }
-
 }

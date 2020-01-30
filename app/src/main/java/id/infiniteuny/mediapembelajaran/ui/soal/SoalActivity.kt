@@ -41,7 +41,7 @@ class SoalActivity : AppCompatActivity() {
         btn_latihan.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             val v = layoutInflater.inflate(R.layout.layout_instruction, null)
-            val b =v.findViewById<LinearLayout>(R.id.root_lay)
+            val b = v.findViewById<LinearLayout>(R.id.root_lay)
             b.setBackgroundColor(resources.getColor(R.color.softYellow))
             val tv = v.findViewById<TextView>(R.id.tv_help)
             tv.text = "- Berdoalah sebelum mengerjakan soal dan pastikan anda sudah belajar\n" +
@@ -70,7 +70,7 @@ class SoalActivity : AppCompatActivity() {
 
             val builder = AlertDialog.Builder(this)
             val v = layoutInflater.inflate(R.layout.layout_instruction, null)
-            val b =v.findViewById<LinearLayout>(R.id.root_lay)
+            val b = v.findViewById<LinearLayout>(R.id.root_lay)
             b.setBackgroundColor(resources.getColor(R.color.lightBlue))
             val tv = v.findViewById<TextView>(R.id.tv_help)
             tv.text = "- Berdoalah sebelum mengerjakan soal dan pastikan anda sudah belajar\n" +

@@ -35,7 +35,8 @@ class LoginActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener {
             if (et_email.text.toString().isNotEmpty() && et_pass.text.toString().isNotEmpty()
-                && et_email.text.toString().isNotBlank() && et_pass.text.toString().isNotBlank()) {
+                && et_email.text.toString().isNotBlank() && et_pass.text.toString().isNotBlank()
+            ) {
                 when (createUser) {
                     true -> signUpUser(et_email.text.toString().trim(), et_pass.text.toString().trim())
                     else -> loginUser(et_email.text.toString().trim(), et_pass.text.toString().trim())
@@ -44,21 +45,22 @@ class LoginActivity : AppCompatActivity() {
 
         }
         btn_change.setOnClickListener {
-            createUser=!createUser
+            createUser = !createUser
             changeView()
         }
     }
-    private fun changeView(){
-        when(createUser){
-            true->{
-                et_name.visibility=View.VISIBLE
-                btn_login.text="Daftar"
-                btn_change.text="Masuk"
+
+    private fun changeView() {
+        when (createUser) {
+            true -> {
+                et_name.visibility = View.VISIBLE
+                btn_login.text = "Daftar"
+                btn_change.text = "Masuk"
             }
-            false->{
-                et_name.visibility=View.GONE
-                btn_login.text="Masuk"
-                btn_change.text="Daftar"
+            false -> {
+                et_name.visibility = View.GONE
+                btn_login.text = "Masuk"
+                btn_change.text = "Daftar"
             }
         }
     }
@@ -87,10 +89,9 @@ class LoginActivity : AppCompatActivity() {
                     toastCnt(it.localizedMessage)
                     pg_bar.visibility = View.GONE
                 }
-        }else{
+        } else {
             pg_bar.visibility = View.GONE
             toastCnt("Silahkan Login")
-
         }
     }
 
@@ -113,16 +114,16 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     addToSystem(it.result!!.user!!.uid)
-
                 } else {
                     toastCnt("Gagal Membuat User")
                     pg_bar.visibility = View.GONE
                 }
             }
     }
-    private fun addToSystem(uid:String){
-        val db=FirebaseFirestore.getInstance()
-        val data= hashMapOf<String,String>(
+
+    private fun addToSystem(uid: String) {
+        val db = FirebaseFirestore.getInstance()
+        val data = hashMapOf<String, String>(
             "name" to et_name.text.toString().trim(),
             "uid" to uid
         )
@@ -133,7 +134,7 @@ class LoginActivity : AppCompatActivity() {
             }
             .addOnFailureListener {
                 toastCnt("Gagal Membuat User")
-                pg_bar.visibility=View.GONE
+                pg_bar.visibility = View.GONE
                 logE(it.message)
             }
     }

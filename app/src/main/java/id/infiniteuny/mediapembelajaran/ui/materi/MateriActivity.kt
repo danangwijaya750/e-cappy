@@ -20,8 +20,8 @@ class MateriActivity : AppCompatActivity(), MateriView {
 
     private lateinit var presenter: MateriPresenter
 
-    private val dataMaterials= mutableListOf<MaterialModel.Data>()
-    private val rvAdapter=object : RvAdapter<Any>(dataMaterials){
+    private val dataMaterials = mutableListOf<MaterialModel.Data>()
+    private val rvAdapter = object : RvAdapter<Any>(dataMaterials) {
         override fun layoutId(position: Int, obj: Any): Int = R.layout.item_layout
 
         override fun viewHolder(view: View, viewType: Int): ViewHolder = MateriVH(view)
@@ -41,8 +41,8 @@ class MateriActivity : AppCompatActivity(), MateriView {
         supportActionBar?.hide()
 
         rv_materi.apply {
-            adapter=rvAdapter
-            layoutManager=LinearLayoutManager(this@MateriActivity)
+            adapter = rvAdapter
+            layoutManager = LinearLayoutManager(this@MateriActivity)
         }
 
         presenter = MateriPresenter(this, this)

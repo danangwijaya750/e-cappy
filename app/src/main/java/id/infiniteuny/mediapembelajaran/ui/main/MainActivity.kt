@@ -11,7 +11,6 @@ import android.view.Gravity
 import android.view.View
 import android.view.Window
 import android.view.WindowManager.LayoutParams
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -26,7 +25,6 @@ import id.infiniteuny.mediapembelajaran.ui.kikd.KikdActivity
 import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
 import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
 import id.infiniteuny.mediapembelajaran.ui.materi.MateriActivity
-import id.infiniteuny.mediapembelajaran.ui.quiz.QuizActivity
 import id.infiniteuny.mediapembelajaran.ui.setting.SettingActivity
 import id.infiniteuny.mediapembelajaran.ui.soal.SoalActivity
 import kotlinx.android.synthetic.main.activity_main.btn_kikd
@@ -36,14 +34,13 @@ import kotlinx.android.synthetic.main.activity_main.btn_petunjuk
 import kotlinx.android.synthetic.main.activity_main.btn_profile
 import kotlinx.android.synthetic.main.activity_main.btn_soal
 import kotlinx.android.synthetic.main.activity_main.drawerLayout
-import kotlinx.android.synthetic.main.activity_main.tv_hello
 import kotlinx.android.synthetic.main.activity_main.tv_keluar
 import kotlinx.android.synthetic.main.activity_main.tv_settings
 import kotlinx.android.synthetic.main.activity_main.tv_username
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var soundIntent:Intent
+    private lateinit var soundIntent: Intent
 
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,8 +56,8 @@ class MainActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
         initDrawer()
-        tv_username.text= Pref(this).user_name
-        soundIntent=Intent(this,SoundService::class.java)
+        tv_username.text = Pref(this).user_name
+        soundIntent = Intent(this, SoundService::class.java)
         btn_kikd.setOnClickListener {
             startActivity(Intent(this, KikdActivity::class.java))
         }
@@ -77,20 +74,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingActivity::class.java))
         }
         tv_keluar.setOnClickListener {
-            val fAuth=FirebaseAuth.getInstance()
-            if(fAuth.currentUser!=null){
+            val fAuth = FirebaseAuth.getInstance()
+            if (fAuth.currentUser != null) {
                 fAuth.signOut()
-                Pref(this).user_name=""
+                Pref(this).user_name = ""
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
 
         }
         btn_nav.setOnClickListener {
-            when(drawerLayout.isDrawerOpen(Gravity.LEFT)){
-                true->{
+            when (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+                true -> {
                     drawerLayout.closeDrawers()
-                }else->{
+                }
+                else -> {
                     drawerLayout.openDrawer(Gravity.LEFT)
                 }
             }
@@ -99,9 +97,9 @@ class MainActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             val v = layoutInflater.inflate(R.layout.layout_profile, null)
             val tv = v.findViewById<TextView>(R.id.tv_username)
-            val tv2=v.findViewById<TextView>(R.id.tv_email)
+            val tv2 = v.findViewById<TextView>(R.id.tv_email)
             tv.text = Pref(this).user_name
-            tv2.text=FirebaseAuth.getInstance().currentUser!!.email
+            tv2.text = FirebaseAuth.getInstance().currentUser!!.email
 
             builder.apply {
                 setTitle("")
@@ -110,17 +108,15 @@ class MainActivity : AppCompatActivity() {
             builder.create().show()
         }
         serviceControl()
-
-
     }
 
-    private fun initDrawer(){
-        val drawerToggle= ActionBarDrawerToggle(this,drawerLayout, string.app_name, string.app_name)
+    private fun initDrawer() {
+        val drawerToggle = ActionBarDrawerToggle(this, drawerLayout, string.app_name, string.app_name)
         drawerLayout.apply {
             addDrawerListener(drawerToggle)
         }
         drawerToggle.syncState()
-        drawerLayout.addDrawerListener(object: DrawerLayout.DrawerListener{
+        drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
             override fun onDrawerStateChanged(newState: Int) {
             }
 
@@ -128,25 +124,23 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onDrawerClosed(drawerView: View) {
-
             }
 
             override fun onDrawerOpened(drawerView: View) {
             }
         })
-
     }
 
-    private fun serviceControl(){
-        when(Pref(this).sound_setting){
-            true->{
+    private fun serviceControl() {
+        when (Pref(this).sound_setting) {
+            true -> {
                 startService(soundIntent)
             }
-            false->{
+            false -> {
                 stopService(soundIntent)
             }
         }
-        Pref(this).sound_setting=!Pref(this).sound_setting
+        Pref(this).sound_setting = !Pref(this).sound_setting
     }
 
     private fun isServiceRunning(serviceClass: Class<*>): Boolean {
@@ -160,6 +154,4 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
-
-
 }

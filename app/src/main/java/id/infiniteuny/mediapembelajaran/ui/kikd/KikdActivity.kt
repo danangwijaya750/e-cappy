@@ -2,10 +2,10 @@ package id.infiniteuny.mediapembelajaran.ui.kikd
 
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager.LayoutParams
+import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import kotlinx.android.synthetic.main.activity_kikd.btn_back
 import kotlinx.android.synthetic.main.activity_kikd.web_view
@@ -30,9 +30,9 @@ class KikdActivity : AppCompatActivity() {
         btn_back.setOnClickListener {
             onBackPressed()
         }
-
     }
-    private fun loadData(){
+
+    private fun loadData() {
         web_view.loadUrl("file:///android_res/raw/kikd.html")
     }
 

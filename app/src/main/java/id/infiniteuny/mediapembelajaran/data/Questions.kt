@@ -7,5 +7,5 @@ import com.google.gson.annotations.SerializedName
  */
 data class Questions(
     @SerializedName("data")
-    val data:List<QuestionModel>
+    val data: List<QuestionModel>
 )

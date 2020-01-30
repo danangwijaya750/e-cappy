@@ -2,10 +2,10 @@ package id.infiniteuny.mediapembelajaran.ui.detail_materi
 
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager.LayoutParams
+import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.data.MaterialModel
 import kotlinx.android.synthetic.main.activity_detail_materi.btn_back
@@ -26,8 +26,8 @@ class DetailMateriActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
-        val data=intent.getParcelableExtra<MaterialModel.Data>("data")
-        tv_title.text=data.title
+        val data = intent.getParcelableExtra<MaterialModel.Data>("data")
+        tv_title.text = data.title
         web_view.loadUrl("file:///android_res/raw/${data.file}")
         btn_back.setOnClickListener {
             onBackPressed()

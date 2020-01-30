@@ -10,7 +10,8 @@ import java.io.InputStreamReader
  * Created by wijaya on 19/12/19
  */
 object JsonReader {
-    fun readMaterials(context: Context,file:Int ):List<MaterialModel.Data>{
+
+    fun readMaterials(context: Context, file: Int): List<MaterialModel.Data> {
         val inStream = context.resources.openRawResource(file)
         val bufferedReader = BufferedReader(InputStreamReader(inStream))
         val read = bufferedReader.use { it.readText() }

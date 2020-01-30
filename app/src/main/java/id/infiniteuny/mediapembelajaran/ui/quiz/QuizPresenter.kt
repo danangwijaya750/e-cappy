@@ -24,7 +24,7 @@ class QuizPresenter(private val db: FirebaseFirestore, private val view: QuizVie
             .addOnSuccessListener {
                 if (it != null) {
                     val data = mutableListOf<QuestionModel>()
-                    it.forEach {snap->
+                    it.forEach { snap ->
                         data.add(snap.toObject(QuestionModel::class.java))
                     }
                     logD(data.size.toString())
@@ -51,22 +51,23 @@ class QuizPresenter(private val db: FirebaseFirestore, private val view: QuizVie
         dataQuestions.addAll(data.data)
         view.showQuestions(dataQuestions)
     }
-    fun uploadScore(score:Int,keyquiz:String,name:String){
-        val fAuth=FirebaseAuth.getInstance()
-        val uid= fAuth.currentUser!!.uid
+
+    fun uploadScore(score: Int, keyquiz: String, name: String) {
+        val fAuth = FirebaseAuth.getInstance()
+        val uid = fAuth.currentUser!!.uid
         view.resultLoad(true)
         db.collection("student_grade")
-            .add(ScoreModel(uid,score.toString(),name,keyquiz))
+            .add(ScoreModel(uid, score.toString(), name, keyquiz))
             .addOnCompleteListener {
-                if(it.isSuccessful){
-                    view.resultUpload(true,score)
-                }else{
-                    view.resultUpload(false,score)
+                if (it.isSuccessful) {
+                    view.resultUpload(true, score)
+                } else {
+                    view.resultUpload(false, score)
                 }
                 view.resultLoad(false)
             }
             .addOnFailureListener {
-                view.resultUpload(false,score)
+                view.resultUpload(false, score)
                 view.resultLoad(false)
             }
     }

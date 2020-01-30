@@ -60,7 +60,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     private var onBackPressedTime: Long = 0
 
     private var pgBarControl = 1
-    private var keyQuiz=""
+    private var keyQuiz = ""
 
     private lateinit var db: FirebaseFirestore
 
@@ -90,10 +90,11 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             onBackPressed()
         }
         btn_submit.setOnClickListener {
-            if(radioButton1.isChecked||radioButton2.isChecked||radioButton3.isChecked
-                ||radioButton4.isChecked||radioButton5.isChecked) {
+            if (radioButton1.isChecked || radioButton2.isChecked || radioButton3.isChecked
+                || radioButton4.isChecked || radioButton5.isChecked
+            ) {
                 checkAnswer()
-            }else{
+            } else {
                 toastCnt("Pilih 1 Jawaban Dahulu")
             }
 
@@ -109,7 +110,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     }
 
     private fun loadQuiz() {
-        keyQuiz=intent.getStringExtra("key")!!
+        keyQuiz = intent.getStringExtra("key")!!
         presenter.getAllQuestions(keyQuiz)
     }
 
@@ -175,7 +176,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         when (state) {
             true -> {
                 val intent = Intent(this, QuizResultActivity::class.java)
-                intent.putExtra("caller","eval")
+                intent.putExtra("caller", "eval")
                 intent.putExtra("score", score)
                 startActivity(intent)
                 finish()
@@ -202,15 +203,15 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         }
     }
 
-    override fun context(): Context =this
+    override fun context(): Context = this
 
     private fun loadQuestion() {
-        tv_question.text = dataQuiz[questionPos].question.replace("\\n","\n",false)
-        radioButton1.text = dataQuiz[questionPos].option1.replace("\\n","\n",false)
-        radioButton2.text = dataQuiz[questionPos].option2.replace("\\n","\n",false)
-        radioButton3.text = dataQuiz[questionPos].option3.replace("\\n","\n",false)
-        radioButton4.text = dataQuiz[questionPos].option4.replace("\\n","\n",false)
-        radioButton5.text = dataQuiz[questionPos].option5.replace("\\n","\n",false)
+        tv_question.text = dataQuiz[questionPos].question.replace("\\n", "\n", false)
+        radioButton1.text = dataQuiz[questionPos].option1.replace("\\n", "\n", false)
+        radioButton2.text = dataQuiz[questionPos].option2.replace("\\n", "\n", false)
+        radioButton3.text = dataQuiz[questionPos].option3.replace("\\n", "\n", false)
+        radioButton4.text = dataQuiz[questionPos].option4.replace("\\n", "\n", false)
+        radioButton5.text = dataQuiz[questionPos].option5.replace("\\n", "\n", false)
         questionCount.text = "${questionPos + 1} / ${dataQuiz.size}"
     }
 
@@ -238,7 +239,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         logD("score $score")
         score = (score * 100) / dataQuiz.size
         logD(Pref(this).user_name)
-        presenter.uploadScore(score,keyQuiz, Pref(this).user_name)
+        presenter.uploadScore(score, keyQuiz, Pref(this).user_name)
 //        toastCnt(score.toString())
     }
 
