@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
         fAuth = FirebaseAuth.getInstance()
+        btn_login.isClickable=false
         checkUser()
 
         btn_login.setOnClickListener {
@@ -72,12 +73,14 @@ class LoginActivity : AppCompatActivity() {
             db.collection("student").whereEqualTo("uid", fAuth.uid)
                 .get().addOnSuccessListener {
                     if (it.isEmpty) {
+                        btn_login.isClickable=true
                         toastCnt("Wellcome Teacher")
                         Pref(this).user_name = "Teacher"
                         pg_bar.visibility = View.GONE
                         startActivity(Intent(this@LoginActivity, TeacherDashActivity::class.java))
                         this@LoginActivity.finish()
                     } else {
+                        btn_login.isClickable=true
                         toastCnt("Wellcome Student")
                         Pref(this).user_name = it.documents[0]["name"].toString()
                         pg_bar.visibility = View.GONE
@@ -90,6 +93,7 @@ class LoginActivity : AppCompatActivity() {
                     pg_bar.visibility = View.GONE
                 }
         } else {
+            btn_login.isClickable=true
             pg_bar.visibility = View.GONE
             toastCnt("Silahkan Login")
         }
