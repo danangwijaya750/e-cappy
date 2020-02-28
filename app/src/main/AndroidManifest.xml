@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="id.infiniteuny.mediapembelajaran"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="id.infiniteuny.mediapembelajaran">
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,10 +12,10 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.pembahasan.ActivityPembahasan"></activity>
+        <activity android:name=".ui.login.SelectAccountActivity"></activity>
+        <activity android:name=".ui.pembahasan.ActivityPembahasan" />
         <activity android:name=".ui.rekap.RekapNilaiActivity" />
         <activity android:name=".ui.kikd.KikdActivity" />
-        <activity android:name=".ui.grade.StudentGradesActivity" />
         <activity android:name=".ui.teacher.TeacherDashActivity" />
         <activity android:name=".ui.quiz.QuizResultActivity" />
         <activity android:name=".ui.quiz.QuizOnlineActivity" />
@@ -34,9 +34,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".service.SoundService"
-            android:enabled="true"
-            ></service>
+
+        <service
+            android:name=".service.SoundService"
+            android:enabled="true" />
     </application>
 
 </manifest>

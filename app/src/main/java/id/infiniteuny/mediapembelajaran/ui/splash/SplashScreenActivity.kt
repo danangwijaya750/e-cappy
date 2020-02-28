@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
+import id.infiniteuny.mediapembelajaran.ui.login.SelectAccountActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     var handler: Handler? = null
@@ -20,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
         supportActionBar?.hide()
         handler = Handler()
         handler!!.postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, SelectAccountActivity::class.java))
             //startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, 2000)

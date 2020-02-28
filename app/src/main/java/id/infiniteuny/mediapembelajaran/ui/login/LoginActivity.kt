@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
         fAuth = FirebaseAuth.getInstance()
         btn_login.isClickable=false
-        checkUser()
 
         btn_login.setOnClickListener {
             if (et_email.text.toString().isNotEmpty() && et_pass.text.toString().isNotEmpty()
