@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.login.TeacherLoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,48 +24,41 @@
             android:id="@+id/iv_icon"
             android:layout_width="250dp"
             android:layout_height="200dp"
-            android:layout_margin="80dp"
+            android:layout_margin="90dp"
             android:src="@drawable/ic_selamat_datang"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/cntr"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_icon">
-
-            <RadioGroup
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:textAlignment="center"
+                android:text="Selamat Data Sahabat Eccapy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/rb_student_female"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:button="@drawable/female_selector"
-                    android:checked="true"
-                    />
-                <RadioButton
-                    android:id="@+id/rb_student_male"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:button="@drawable/male_selector" />
-            </RadioGroup>
-
+                android:textStyle="bold"
+                android:textColor="@color/navBackground"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:textAlignment="center"
+                android:text="Edukative Accounting Happy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navBackground"
+                android:textSize="18sp"
+                />
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

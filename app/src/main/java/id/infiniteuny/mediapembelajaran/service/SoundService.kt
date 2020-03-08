@@ -11,6 +11,10 @@ import id.infiniteuny.mediapembelajaran.R
  */
 class SoundService : Service() {
 
+    companion object{
+        val SERVICE_TAG="sound.service"
+    }
+
     lateinit var mp: MediaPlayer
 
     override fun onBind(p0: Intent?): IBinder? = null

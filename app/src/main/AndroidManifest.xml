@@ -12,7 +12,9 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.login.SelectAccountActivity"></activity>
+        <activity android:name=".ui.login.TeacherLoginActivity"></activity>
+        <activity android:name=".ui.quiz.QuizTrueFalseActivity" />
+        <activity android:name=".ui.login.SelectAccountActivity" />
         <activity android:name=".ui.pembahasan.ActivityPembahasan" />
         <activity android:name=".ui.rekap.RekapNilaiActivity" />
         <activity android:name=".ui.kikd.KikdActivity" />

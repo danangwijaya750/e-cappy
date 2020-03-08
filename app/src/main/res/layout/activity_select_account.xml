@@ -70,16 +70,16 @@
                 <RadioButton
                     android:id="@+id/rb_teacher"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:layout_weight="1"
                     android:button="@drawable/teacher_selector"
                     android:checked="true"
-                    android:text="" />
+                     />
 
                 <RadioButton
                     android:id="@+id/rb_student"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:layout_weight="1"
                     android:button="@drawable/student_selector" />
             </RadioGroup>

@@ -1,39 +1,39 @@
 package id.infiniteuny.mediapembelajaran.ui.login
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.data.Pref
-import id.infiniteuny.mediapembelajaran.ui.main.MainActivity
 import id.infiniteuny.mediapembelajaran.ui.teacher.TeacherDashActivity
 import id.infiniteuny.mediapembelajaran.utils.logE
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.btn_change
+import kotlinx.android.synthetic.main.activity_login.btn_login
+import kotlinx.android.synthetic.main.activity_login.cntr
+import kotlinx.android.synthetic.main.activity_login.et_email
+import kotlinx.android.synthetic.main.activity_login.et_name
+import kotlinx.android.synthetic.main.activity_login.et_pass
+import kotlinx.android.synthetic.main.activity_login.iv_icon
+import kotlinx.android.synthetic.main.activity_login.pg_bar
+import kotlinx.android.synthetic.main.activity_teacher_login.*
 
-class LoginActivity : AppCompatActivity() {
+class TeacherLoginActivity : AppCompatActivity() {
     private var createUser = false
     lateinit var fAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.requestFeature(Window.FEATURE_ACTION_BAR)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_teacher_login)
         supportActionBar?.hide()
         fAuth = FirebaseAuth.getInstance()
-//        btn_login.isClickable=false
-        if(intent.getStringExtra("role")=="siswa"){
-            btn_change.visibility=View.VISIBLE
-            tv_atau.visibility=View.VISIBLE
-        }else{
-            btn_change.visibility=View.GONE
-            tv_atau.visibility=View.GONE
-        }
 
         btn_login.setOnClickListener {
             if (et_email.text.toString().isNotEmpty() && et_pass.text.toString().isNotEmpty()
@@ -55,15 +55,15 @@ class LoginActivity : AppCompatActivity() {
     private fun changeView() {
         when (createUser) {
             true -> {
+                cntr.visibility=View.GONE
+                iv_icon.setImageResource(R.drawable.ic_sign_up_guru)
                 et_name.visibility = View.VISIBLE
-                cntr.visibility=View.VISIBLE
-                iv_icon.visibility=View.INVISIBLE
                 btn_login.text = "Daftar"
                 btn_change.text = "Masuk"
             }
             false -> {
-                cntr.visibility=View.GONE
-                iv_icon.visibility=View.VISIBLE
+                cntr.visibility= View.VISIBLE
+                iv_icon.setImageResource(R.drawable.ic_selamat_datang)
                 et_name.visibility = View.GONE
                 btn_login.text = "Masuk"
                 btn_change.text = "Daftar"
@@ -74,11 +74,7 @@ class LoginActivity : AppCompatActivity() {
     private fun checkUser() {
         if (fAuth.currentUser != null) {
             pg_bar.visibility = View.VISIBLE
-            if(intent.getStringExtra("role")=="siswa"){
-                studentCheck()
-            }else{
                 teacherCheck()
-            }
         } else {
             btn_login.isClickable=true
             pg_bar.visibility = View.GONE
@@ -86,28 +82,23 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private   fun  teacherCheck(){
-        startActivity(Intent(this@LoginActivity, TeacherDashActivity::class.java))
-        this@LoginActivity.finish()
-    }
-    private fun studentCheck(){
-        val db = FirebaseFirestore.getInstance()
-        db.collection("student").whereEqualTo("uid", fAuth.uid)
-            .get().addOnSuccessListener {
+        val db=FirebaseFirestore.getInstance()
+        db.collection("teacher").whereEqualTo("uid",fAuth.currentUser!!.uid)
+            .get()
+            .addOnSuccessListener {
                 btn_login.isClickable=true
-                toastCnt("Welcome Student")
+                toastCnt("Welcome Teacher")
                 Pref(this).user_name = it.documents[0]["name"].toString()
-                Pref(this).jk = it.documents[0]["jk"].toString()
-                Pref(this).kls = it.documents[0]["kelas"].toString()
                 pg_bar.visibility = View.GONE
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                this@LoginActivity.finish()
+                startActivity(Intent(this@TeacherLoginActivity,TeacherDashActivity::class.java))
+                this@TeacherLoginActivity.finish()
             }
             .addOnFailureListener {
-                toastCnt(it.localizedMessage)
-                pg_bar.visibility = View.GONE
+                logE(it.message)
             }
-    }
 
+
+    }
     private fun loginUser(email: String, password: String) {
         pg_bar.visibility = View.VISIBLE
         fAuth.signInWithEmailAndPassword(email, password)
@@ -126,11 +117,7 @@ class LoginActivity : AppCompatActivity() {
         fAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    val jk= when(rb_student_female.isSelected){
-                        true->"perempuan"
-                        else->"laki"
-                    }
-                    addToSystem(it.result!!.user!!.uid,"",jk)
+                    addToSystem(it.result!!.user!!.uid)
                 } else {
                     toastCnt("Gagal Membuat User")
                     pg_bar.visibility = View.GONE
@@ -138,15 +125,13 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun addToSystem(uid: String,kelas:String,jk:String) {
+    private fun addToSystem(uid: String) {
         val db = FirebaseFirestore.getInstance()
         val data = hashMapOf<String, String>(
             "name" to et_name.text.toString().trim(),
-            "uid" to uid,
-            "kelas" to kelas,
-            "jk" to jk
+            "uid" to uid
         )
-        db.collection("student").add(data)
+        db.collection("teacher").add(data)
             .addOnSuccessListener {
                 toastCnt("Berhasil Membuat User")
                 checkUser()

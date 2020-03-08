@@ -38,10 +38,21 @@ class SelectAccountActivity : AppCompatActivity() {
             role="guru"
         }
         iv_next.setOnClickListener {
-            val intent=Intent(this,LoginActivity::class.java)
-            intent.putExtra("role",role)
-//            startActivity(intent)
-            toastCnt(role)
+          when(role){
+              "siswa"->{
+                  val intent=Intent(this,LoginActivity::class.java)
+                  intent.putExtra("role",role)
+                  startActivity(intent)
+                  finish()
+              }
+              "guru"->{
+                  val intent=Intent(this,TeacherLoginActivity::class.java)
+                  intent.putExtra("role",role)
+                  startActivity(intent)
+                  finish()
+              }
+          }
+//            toastCnt(role)
         }
     }
 

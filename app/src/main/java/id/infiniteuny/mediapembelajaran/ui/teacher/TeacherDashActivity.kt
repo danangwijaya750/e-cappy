@@ -8,7 +8,10 @@ import android.view.Gravity
 import android.view.View
 import android.view.Window
 import android.view.WindowManager.LayoutParams
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -16,12 +19,10 @@ import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.R.string
 import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
+import id.infiniteuny.mediapembelajaran.ui.login.SelectAccountActivity
 import id.infiniteuny.mediapembelajaran.ui.rekap.RekapNilaiActivity
-import kotlinx.android.synthetic.main.activity_main.tv_username
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_teacher_dash.btn_materi
-import kotlinx.android.synthetic.main.activity_teacher_dash.btn_nav
-import kotlinx.android.synthetic.main.activity_teacher_dash.drawerLayout
-import kotlinx.android.synthetic.main.activity_teacher_dash.tv_keluar
 
 class TeacherDashActivity : AppCompatActivity() {
 
@@ -37,51 +38,38 @@ class TeacherDashActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
-        initDrawer()
         tv_username.text = Pref(this).user_name
 
         btn_materi.setOnClickListener {
             startActivity(Intent(this, RekapNilaiActivity::class.java))
         }
-        tv_keluar.setOnClickListener {
-            val fAuth = FirebaseAuth.getInstance()
-            if (fAuth.currentUser != null) {
+
+        btn_profile.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            val v = layoutInflater.inflate(R.layout.layout_profile, null)
+            val tv = v.findViewById<TextView>(R.id.tv_username)
+            val tv2 = v.findViewById<TextView>(R.id.tv_email)
+            val iv=v.findViewById<ImageView>(R.id.iv_profile)
+//            iv.setImageResource(R.drawable)
+            val iv_lo=v.findViewById<ImageView>(R.id.btn_logout)
+            tv.text = Pref(this).user_name
+            tv2.text = FirebaseAuth.getInstance().currentUser!!.email
+
+            builder.apply {
+                setTitle("")
+                setView(v)
+            }
+           val alert = builder.create()
+            alert.show()
+            iv_lo.setOnClickListener {
+                val fAuth=FirebaseAuth.getInstance()
                 fAuth.signOut()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
+                alert.dismiss()
+                startActivity(Intent(this,SelectAccountActivity::class.java))
+                this@TeacherDashActivity.finish()
             }
+        }
 
-        }
-        btn_nav.setOnClickListener {
-            when (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
-                true -> {
-                    drawerLayout.closeDrawers()
-                }
-                else -> {
-                    drawerLayout.openDrawer(Gravity.LEFT)
-                }
-            }
-        }
     }
 
-    private fun initDrawer() {
-        val drawerToggle = ActionBarDrawerToggle(this, drawerLayout, string.app_name, string.app_name)
-        drawerLayout.apply {
-            addDrawerListener(drawerToggle)
-        }
-        drawerToggle.syncState()
-        drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
-            override fun onDrawerStateChanged(newState: Int) {
-            }
-
-            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-            }
-
-            override fun onDrawerClosed(drawerView: View) {
-            }
-
-            override fun onDrawerOpened(drawerView: View) {
-            }
-        })
-    }
 }
