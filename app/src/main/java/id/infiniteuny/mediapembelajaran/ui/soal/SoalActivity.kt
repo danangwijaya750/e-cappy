@@ -14,9 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.ui.quiz.QuizActivity
 import id.infiniteuny.mediapembelajaran.ui.quiz.QuizOnlineActivity
-import kotlinx.android.synthetic.main.activity_soal.btn_back
-import kotlinx.android.synthetic.main.activity_soal.btn_latihan
-import kotlinx.android.synthetic.main.activity_soal.btn_uji
+import id.infiniteuny.mediapembelajaran.ui.quiz.QuizTrueFalseActivity
+import kotlinx.android.synthetic.main.activity_soal.*
 
 class SoalActivity : AppCompatActivity() {
 
@@ -64,6 +63,10 @@ class SoalActivity : AppCompatActivity() {
             }
             builder.create().show()
 
+        }
+        btn_tf.setOnClickListener {
+            val intent = Intent(this@SoalActivity, QuizTrueFalseActivity::class.java)
+            startActivity(intent)
         }
 
         btn_uji.setOnClickListener {

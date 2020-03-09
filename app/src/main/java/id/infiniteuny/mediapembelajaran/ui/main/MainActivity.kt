@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         tv_username.text = Pref(this).user_name
         when(Pref(this).jk){
-            "laki"->btn_profile.setImageResource(R.drawable.ic_pilih_laki)
-            else->btn_profile.setImageResource(R.drawable.ic_pilih_perempuan)
+            "laki"->btn_profile.setImageResource(R.drawable.ic_male)
+            else->btn_profile.setImageResource(R.drawable.ic_female)
         }
         soundIntent = Intent(this, SoundService::class.java)
         btn_kikd.setOnClickListener {
@@ -72,26 +72,6 @@ class MainActivity : AppCompatActivity() {
         btn_tentang.setOnClickListener {
 
         }
-//        tv_keluar.setOnClickListener {
-//            val fAuth = FirebaseAuth.getInstance()
-//            if (fAuth.currentUser != null) {
-//                fAuth.signOut()
-//                Pref(this).user_name = ""
-//                startActivity(Intent(this, LoginActivity::class.java))
-//                finish()
-//            }
-//
-//        }
-//        btn_nav.setOnClickListener {
-//            when (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
-//                true -> {
-//                    drawerLayout.closeDrawers()
-//                }
-//                else -> {
-//                    drawerLayout.openDrawer(Gravity.LEFT)
-//                }
-//            }
-//        }
         btn_profile.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             val v = layoutInflater.inflate(R.layout.layout_profile, null)
@@ -124,36 +104,8 @@ class MainActivity : AppCompatActivity() {
 //            setIvSound()
 //        }
         serviceControl()
-        setIvSound()
     }
 
-    private fun setIvSound(){
-//        when(Pref(this).sound_setting){
-//            true->{iv_sound.setImageResource(R.drawable.mute)}
-//            false->{iv_sound.setImageResource(R.drawable.unmute)}
-//        }
-    }
-
-    private fun initDrawer() {
-//        val drawerToggle = ActionBarDrawerToggle(this, drawerLayout, string.app_name, string.app_name)
-//        drawerLayout.apply {
-//            addDrawerListener(drawerToggle)
-//        }
-//        drawerToggle.syncState()
-//        drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
-//            override fun onDrawerStateChanged(newState: Int) {
-//            }
-//
-//            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-//            }
-//
-//            override fun onDrawerClosed(drawerView: View) {
-//            }
-//
-//            override fun onDrawerOpened(drawerView: View) {
-//            }
-//        })
-    }
 
      fun serviceControl() {
         when (Pref(this).sound_setting) {

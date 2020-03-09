@@ -26,8 +26,9 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btn_back"
             android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="50dp"
             android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,8 +36,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="Soal"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="50dp"
+            android:text="KI KD"
             android:textColor="@color/colorAccent"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -48,6 +50,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tool_bar">
@@ -64,53 +67,196 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="10dp"
                 android:alignmentMode="alignMargins"
-                android:columnCount="2"
+                android:columnCount="1"
                 android:columnOrderPreserved="false"
                 android:orientation="vertical"
-                android:rowCount="1"
+                android:rowCount="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_latihan"
+                    android:id="@+id/btn_tf"
                     android:layout_width="0dp"
-                    android:layout_height="210dp"
+                    android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="10dp"
-
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/ic_latihan"
                     android:layout_rowWeight="1"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_latihan"
-                        />
+                        >
+                        <ImageView
+                            android:id="@+id/iv_ic"
+                            android:layout_margin="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:src="@drawable/ic_card_quiz"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            app:layout_constraintStart_toEndOf="@id/iv_ic"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/tv_ic"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="30dp"
+                            android:text="Quiz"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:textSize="20sp"
+                            />
+                        <TextView
+                            app:layout_constraintStart_toEndOf="@id/iv_ic"
+                            app:layout_constraintTop_toBottomOf="@id/tv_ic"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/tv_ic2"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="5dp"
+                            android:text="10 Soal"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            />
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:src="@drawable/ic_quiz_3mpersoal"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_latihan"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_rowWeight="1"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="1dp">
+                  <androidx.constraintlayout.widget.ConstraintLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      >
+                      <ImageView
+                          android:id="@+id/iv_ic21"
+                          android:layout_margin="5dp"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          android:src="@drawable/ic_card_latihan"
+                          android:layout_width="100dp"
+                          android:layout_height="match_parent"
+                          />
+                      <TextView
+                          app:layout_constraintStart_toEndOf="@id/iv_ic21"
+                          app:layout_constraintTop_toTopOf="parent"
+                          android:layout_width="wrap_content"
+                          android:id="@+id/tv_ic21"
+                          android:layout_height="wrap_content"
+                          android:layout_margin="30dp"
+                          android:text="Latihan"
+                          android:textStyle="bold"
+                          android:textColor="#000"
+                          android:textSize="20sp"
+                          />
+                      <TextView
+                          app:layout_constraintStart_toEndOf="@id/iv_ic21"
+                          app:layout_constraintTop_toBottomOf="@id/tv_ic21"
+                          android:layout_width="wrap_content"
+                          android:id="@+id/tv_ic212"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="30dp"
+                          android:layout_marginTop="5dp"
+                          android:text="30 Soal"
+                          android:textStyle="bold"
+                          android:textColor="#000"
+                          android:textSize="18sp"
+                          />
+                      <ImageView
+                          android:layout_width="50dp"
+                          android:layout_height="50dp"
+                          android:layout_marginEnd="10dp"
+                          app:layout_constraintEnd_toEndOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:layout_constraintBottom_toBottomOf="parent"
+                          android:src="@drawable/ic_latihan_45m"
+                          />
+                  </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_uji"
                     android:layout_width="0dp"
-                    android:layout_height="210dp"
+                    android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_rowWeight="1"
-                    android:src="@drawable/ic_eval"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_ujikem"
-                        />
+                        >
+                        <ImageView
+                            android:id="@+id/iv_ic1"
+                            android:layout_margin="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:src="@drawable/ic_card_ujikemampuan"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            app:layout_constraintStart_toEndOf="@id/iv_ic1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/tv_ic1"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+                            android:text="Uji Kemampuan"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:textSize="20sp"
+                            />
+                        <TextView
+                            app:layout_constraintStart_toEndOf="@id/iv_ic1"
+                            app:layout_constraintTop_toBottomOf="@id/tv_ic1"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/tv_ic22"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="20 Soal"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:src="@drawable/ic_ujikemampuan_30m"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
-
 
             </GridLayout>
 
