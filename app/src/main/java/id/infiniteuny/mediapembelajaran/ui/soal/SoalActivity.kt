@@ -65,8 +65,31 @@ class SoalActivity : AppCompatActivity() {
 
         }
         btn_tf.setOnClickListener {
-            val intent = Intent(this@SoalActivity, QuizTrueFalseActivity::class.java)
-            startActivity(intent)
+            val builder = AlertDialog.Builder(this)
+            val v = layoutInflater.inflate(R.layout.layout_instruction, null)
+            val b = v.findViewById<LinearLayout>(R.id.root_lay)
+            b.setBackgroundColor(resources.getColor(R.color.tentang))
+            val tv = v.findViewById<TextView>(R.id.tv_help)
+            tv.text = "- Berdoalah sebelum mengerjakan soal dan pastikan anda sudah belajar\n" +
+                    "- Siapkan Kalkulator\n" +
+                    "- Soal berbentuk pilihan ganda, sehingga pilih salah satu jawaban yang benar\n" +
+                    "- Skor untuk jawaban benar adalah 5\n" +
+                    "- Skor untuk jawaban salah adalah 0\n" +
+                    "- Jumlah soal 20 dengan waktu 15 menit\n" +
+                    "- Kerjakan mandiri untuk mengukur kemampuan anda"
+            builder.apply {
+                setTitle("Petunjuk Pengerjaan Soal : ")
+                setView(v)
+                setPositiveButton("Ok") { _, _ ->
+                    val intent = Intent(this@SoalActivity, QuizTrueFalseActivity::class.java)
+                    startActivity(intent)
+                }
+                setNegativeButton("Batal") { _, _ ->
+
+                }
+            }
+            builder.create().show()
+
         }
 
         btn_uji.setOnClickListener {

@@ -9,14 +9,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/iv_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:scaleType="centerCrop"
             android:src="@drawable/header_baloon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,15 +29,15 @@
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/iv_header"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="15dp"
             android:text="Tentang"
             android:textColor="@color/colorAccent"
@@ -44,7 +45,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/iv_header" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
@@ -113,6 +114,72 @@
                             android:textColor="#000"
                             android:textSize="15sp"
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mahasiswa"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                             />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ibu Fulan, S.E"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ahli Media"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sri Suharti, S.E"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Praktisi"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                            />
                     </LinearLayout>
 
                     <LinearLayout
@@ -129,11 +196,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Febriana Putri Istiqomah"
+                            android:text="Rizqi Ilyasa Aghni, S.Pd., M.Pd"
                             android:textAlignment="center"
                             android:textColor="#000"
                             android:textSize="15sp"
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dosen Pembimbing"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                            />
                     </LinearLayout>
 
                     <LinearLayout
@@ -148,13 +223,21 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Febriana Putri Istiqomah"
+                            android:text="Bapak Fulan2, S.E"
                             android:textAlignment="center"
                             android:textColor="#000"
                             android:textSize="15sp"
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ahli Materi"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="12sp"
+                            />
                     </LinearLayout>
 
                     <LinearLayout
@@ -169,55 +252,21 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Febriana Putri Istiqomah"
+                            android:text="Divistant.com"
                             android:textAlignment="center"
                             android:textColor="#000"
                             android:textSize="15sp"
                             android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="150dp"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Febriana Putri Istiqomah"
+                            android:text="Software House"
                             android:textAlignment="center"
                             android:textColor="#000"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="150dp"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Febriana Putri Istiqomah"
-                            android:textAlignment="center"
-                            android:textColor="#000"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp"
+                            />
                     </LinearLayout>
 
                 </GridLayout>

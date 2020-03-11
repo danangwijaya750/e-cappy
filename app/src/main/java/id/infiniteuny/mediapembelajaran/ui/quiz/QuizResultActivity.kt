@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
@@ -39,10 +40,16 @@ class QuizResultActivity : AppCompatActivity() {
         if (intent.getStringExtra("caller") == "eval") {
             root_lay.setBackgroundColor(resources.getColor(R.color.lightBlue))
             tool_bar.setBackgroundColor(resources.getColor(R.color.lightBlue))
+        }else if(intent.getStringExtra("caller") == "quizes"){
+            root_lay.setBackgroundColor(resources.getColor(R.color.tentang))
+            tool_bar.setBackgroundColor(resources.getColor(R.color.tentang))
+            btn_to_bahas.visibility= View.INVISIBLE
         }
-
-        setChartValue(intent.getIntExtra("score", 0))
-
+        if(intent.getStringExtra("caller") == "quizes") {
+            setChartForQuiz(intent.getIntExtra("score", 0))
+        }else{
+            setChartValue(intent.getIntExtra("score", 0))
+        }
 
         btn_back.setOnClickListener {
             onBackPressed()
@@ -64,6 +71,24 @@ class QuizResultActivity : AppCompatActivity() {
         pieChart.setUsePercentValues(true)
         val xvals = mutableListOf<PieEntry>()
         xvals.add(PieEntry(100f - data.toFloat(), "Score Losses"))
+        xvals.add(PieEntry(data.toFloat(), "Your Score"))
+        val dataSet = PieDataSet(xvals, "")
+        dataSet.colors = listOf(Color.RED, Color.GREEN)
+
+        val pieData = PieData(dataSet)
+        pieChart.description.text = ""
+        pieData.setValueFormatter(PercentFormatter())
+        pieChart.data = pieData
+        pieChart.isDrawHoleEnabled = true
+        pieChart.setDrawEntryLabels(false)
+        pieChart.data.setValueTextColor(Color.WHITE)
+        pieChart.data.setValueTextSize(15f)
+    }
+    private fun setChartForQuiz(data: Int){
+        logD(data.toString())
+        pieChart.setUsePercentValues(true)
+        val xvals = mutableListOf<PieEntry>()
+        xvals.add(PieEntry(10f - data.toFloat(), "Score Losses"))
         xvals.add(PieEntry(data.toFloat(), "Your Score"))
         val dataSet = PieDataSet(xvals, "")
         dataSet.colors = listOf(Color.RED, Color.GREEN)

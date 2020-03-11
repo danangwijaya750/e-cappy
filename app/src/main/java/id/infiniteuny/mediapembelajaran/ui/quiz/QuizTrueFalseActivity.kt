@@ -1,5 +1,6 @@
 package id.infiniteuny.mediapembelajaran.ui.quiz
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
@@ -122,7 +123,7 @@ class QuizTrueFalseActivity : AppCompatActivity() {
             }
             if(answerData=="true"){
                 db.collection("jawaban").
-                        document(quizQuestion[questionPos].id.toString())
+                    document(quizQuestion[questionPos].id.toString())
                     .update("jawab_true",FieldValue.increment(1))
                     .addOnCompleteListener {
                         if (it.isSuccessful){
@@ -153,7 +154,7 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         if (questionPos <= quizQuestion.size - 1) {
             showQuestion()
         } else {
-            toastCnt("Soal habis")
+            inLastQuestion()
         }
     }
 
@@ -269,5 +270,14 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         quizQuestion.addAll(dataQuestions.take(10))
         logD("${quizQuestion.size}")
         showQuestion()
+    }
+    private fun inLastQuestion(){
+        countDownTimer!!.cancel()
+        logD("score $score")
+        val intent = Intent(this, QuizResultActivity::class.java)
+        intent.putExtra("caller", "quizes")
+        intent.putExtra("score", score)
+        startActivity(intent)
+        finish()
     }
 }
