@@ -38,7 +38,7 @@ class SoalActivity : AppCompatActivity() {
         }
 
         btn_latihan.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
+            val builder =AlertDialog.Builder(this)
             val v = layoutInflater.inflate(R.layout.layout_instruction, null)
             val b = v.findViewById<LinearLayout>(R.id.root_lay)
             b.setBackgroundColor(resources.getColor(R.color.softYellow))

@@ -1,0 +1,18 @@
+{
+  "data":[
+    {
+      "id":1,
+      "question":"ini pertanyaan",
+      "img":"String",
+      "key":"true",
+      "pembahas":"String"
+    },
+    {
+      "id":2,
+      "question":"ini pertanyaan 2",
+      "img":"String",
+      "key":"false",
+      "pembahas":"String"
+    }
+  ]
+}

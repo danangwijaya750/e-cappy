@@ -214,7 +214,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    app:cardBackgroundColor="@color/softYellow"
+                    app:cardBackgroundColor="@color/tentang"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
 
@@ -226,7 +226,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:src="@drawable/ic_soal"
+                            android:src="@drawable/ic_tentang"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -331,7 +331,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    app:cardBackgroundColor="@color/darkBlue"
+                    app:cardBackgroundColor="@color/pengaturan"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="1dp">
 
@@ -343,7 +343,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:src="@drawable/ic_petunjuk"
+                            android:src="@drawable/ic_pengaturan"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 

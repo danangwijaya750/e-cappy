@@ -29,6 +29,7 @@ import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
 import id.infiniteuny.mediapembelajaran.ui.materi.MateriActivity
 import id.infiniteuny.mediapembelajaran.ui.setting.SettingActivity
 import id.infiniteuny.mediapembelajaran.ui.soal.SoalActivity
+import id.infiniteuny.mediapembelajaran.ui.tentang.TentangActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingActivity::class.java))
         }
         btn_tentang.setOnClickListener {
-
+            startActivity(Intent(this, TentangActivity::class.java))
         }
         btn_profile.setOnClickListener {
             val builder = AlertDialog.Builder(this)

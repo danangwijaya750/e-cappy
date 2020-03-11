@@ -19,4 +19,5 @@ object JsonReader {
         bufferedReader.close()
         return data.data
     }
+
 }
