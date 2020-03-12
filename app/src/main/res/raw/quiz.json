@@ -2,17 +2,213 @@
   "data":[
     {
       "id":1,
-      "question":"ini pertanyaan",
-      "img":"String",
-      "key":"true",
-      "pembahas":"String"
+      "question":"Perusahaan Happy Profit membeli peralatan dengan harga perolehan sebesar Rp. 140.000.000,00. Diperkirakan nilai residu dari mesin tersebut dengan pemakaian selama 12 tahun adalah sebesar 20.000.000,00. Maka Jurnal Penyesuaiannya adalah...",
+      "img":"1a",
+      "key":"false",
+      "pembahas":"1b"
     },
     {
       "id":2,
-      "question":"ini pertanyaan 2",
-      "img":"String",
+      "question":"Perusahaan Rajawali Utama pada tahun 2019 melakukan pembelian perlengkapan kantor sehingga tercatat dalam neraca saldo “akun perlengkapan kantor” senilai Rp 20.000.000,00 lalu lewat pemeriksaan fisik di akhir periode diperoleh persediaan perlengkapan sebesar Rp 1.600.000,00. Maka Jurnal Penyesuainnya adalah...",
+      "img":"2a",
+      "key":"true",
+      "pembahas":"2b"
+    },
+    {
+      "id":3,
+      "question":"PD Sentosa pada 31 Desember 2019 mencatat saldo persediaan barang dagang awal sebesar Rp. 29.000.000,00 dan persediaan barang dagang akhir sebesar Rp. 32.000.000. Maka Jurnal Penyesuainnya dengan metode ikhtisar L/R adalah...",
+      "img":"3a",
+      "key":"true",
+      "pembahas":"3b"
+    },
+    {
+      "id":4,
+      "question":"PD Mitra Fashion pada neraca saldo per 31 Desember 2019 menunjukkan saldo debet sebesar Rp 160.000.000,00. Sedangkan pada data penyesuaian menyebutkan bahwa masih terdapat sewa yang belum jatuh tempo sebesar Rp 40.000.000,00. Dari informasi tersebut, maka jurnal penyesuaian yang diperlukan 31 Desember 2019 apabila menggunakan metode L/R adalah ...",
+      "img":"4a",
       "key":"false",
-      "pembahas":"String"
+      "pembahas":"4b"
+    },
+    {
+      "id":5,
+      "question":"PD Hindia membayar gaji karyawan sebesar Rp 30.000,00 per hari. Gaji tersebut dibayarkan setiap emam hari sekali pada hari Sabtu. Pada akhir tahun terdapat gaji karyawan yang belum dibayar selama 5 hari. Maka dalam jurnal penyesuaian terdapat Utang Gaji sebesar Rp. 30.000,00.",
+      "img":"",
+      "key":"false",
+      "pembahas":"5b"
+    },
+    {
+      "id":6,
+      "question":"Dalam daftar saldo 31 Desember 2019 Akun Pajak Penghasilan sebesar Rp 3.000.000,00. Pada tahun ini ditetapkan oleh kantor pajak bahwa besarnya pajak Rp 6.500.000,00 dari data ini maksudnya perusahaan sudah membayar ke kantor pajak sebesar Rp 3.000.000,00 dan oleh kantor pajak pada akhir periode ditetapkan pajak yang harus dibayar perusahaan sebesar Rp6.500.000,00. Berarti perusahaan masih menanggung beban pajak Rp 3.500.000,00. Saldo akun Pajak Penghasilan yang terdapat pada jurnal penyesuaian perusahaan adalah sebesar Rp. 6.500.000,00.",
+      "img":"",
+      "key":"false",
+      "pembahas":"6b"
+    },
+    {
+      "id":7,
+      "question":"Perusahaan Sumber Rejeki memiliki taksiran piutang tak tertagih sebesar Rp. 600.000,00 dan memiliki saldo cadangan penghapusan piutang sebesar Rp. 300.000,00. Maka jurnal penyesuaian yang ada akan mencatat bahwa Biaya Kerugian Piutang sebesar Rp. 900.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"7b"
+    },
+    {
+      "id":8,
+      "question":"Pada tanggal 1 November 2020 Perusahaan Jaya Abadi mengambil pinjaman dari bank sebesar Rp 100.000.000,00 dengan jangka waktu 120 hari, bunga 1 tahun 12%, jurnal penyesuaian 31 Desember 2018 (1 bulan= 30 hari). Maka saldo Beban Bunga akan berada pada sisi kredit sebesar Rp. 2.000.000,00.",
+      "img":"",
+      "key":"false",
+      "pembahas":"8b"
+    },
+    {
+      "id":9,
+      "question":"Pada tanggal 31 Desember 2019 PT Kartoyono memiliki piutang sebesar Rp. 20.000.000,00 Perusahaan menetapkan besar kerugian piutang adalah 8% dari total piutang. Maka saldo Beban Kerugian Piutang dalam Jurnal penyesuaiannya adalah sebesar Rp. 1.600.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"9b"
+    },
+    {
+      "id":10,
+      "question":"Pendapatan diterima dimuka adalah rekening yang dalam perusahaan dagang yang memerlukan penyesuaian.",
+      "img":"",
+      "key":"true",
+      "pembahas":"10b"
+    },
+    {
+      "id":11,
+      "question":"Pada tanggal 1 Februari 2020 PD Sumber Rejeki menyewa sebuah ruko untuk periode satu tahun ke depan kepada PT Rahayu sebesar Rp 12.000.000 ( Pendekatan Neraca). Saldo beban sewa pada jurnal penyesuaian tanggal 31 Desember 2020 adalah sebesar Rp. 11.000.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"11b"
+    },
+    {
+      "id":12,
+      "question":"PD Rawit Mulyo membayar asuransi Rp 50.000.000 dibayar untuk 10 bulan pada 1 April 2019. Pencatatan transaksi ini menggunakan pendekatan laba rugi, jurnal penyesuain 31 Desember 2019 adalah...",
+      "img":"12a",
+      "key":"false",
+      "pembahas":"12b"
+    },
+    {
+      "id":13,
+      "question":"PD Sumber Rejeki memiliki beban bunga yang belum dibayarkan sebesar Rp 2.400.000,00. jurnal penyesuaian yang dibuat akhir periode akuntansi adalah...",
+      "img":"13a",
+      "key":"true",
+      "pembahas":"13b"
+    },
+    {
+      "id":14,
+      "question":"PD Rembulan menghapuskan piutang pada Tn. Wahyono sebesar Rp 5.000.000,00 karena usahanya bangkrut ( metode cadangan). Maka saldo beban kerugian piutang pada jurnal penyesuaian yang dicatat PD Rembulan pada tanggal 31 Desember 2019 adalah Rp. 5.000.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"14b"
+    },
+    {
+      "id":15,
+      "question":"Data perlengkapan pada neraca saldo PD Kanada per 1 Januari 2019  menunjukan saldo sebesar Rp 5.000.000. Perlengkapan yang sudah terpakai tercatat pada 31 Desember 2019 adalah sebesar  Rp 1.500.000. Maka saldo perlengkapan kantor berada pada sisi debet  pada jurnal penyesuaian yang dibuat pada 31 Desember 2019 sebesar Rp 1.500.000,00.",
+      "img":"",
+      "key":"false",
+      "pembahas":"15b"
+    },
+    {
+      "id":16,
+      "question":"Daftar saldo 31 Des 2019 PD Fashionstore, menunjukkan adanya saldo peralatan kantor sebesar Rp 5.000.000,00. Peralatan kantor disusutkan sebesar 2% menggunakan metode garis lurus. Saldo Beban Penyusutan Peralatan berada pada sisi debit dalam jurnal penyesuaian yang dibuat oleh PD Fashionstore sebesar  Rp 100.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"16b"
+    },
+    {
+      "id":17,
+      "question":"Pada 1 Juli 2019 PD Raja menyimpan uang di Bank Rp 200.000.000,00 dengan suku bunga 12% pertahun dan bunga yang diterima oleh PD Raja setiap 6 bulan sekali ( 1 Januari & 1 Juli). Pada akhir periode akuntansi bunga yang diterima penundaannya selama 3 bulan. Maka saldo Piutang Bunga pada jurnal penyesuaiannya adalah sebesar Rp 2.000.000,00.",
+      "img":"",
+      "key":"false",
+      "pembahas":"17b"
+    },
+    {
+      "id":18,
+      "question":"PD Happy Asmara membayar gaji karyawan sebesar Rp 120.000,00 per hari. Gaji tersebut dibayarkan setiap empat hari sekali pada hari jumat. Pada akhir tahun terdapat gaji karyawan yang belum dibayar selama 2 hari. Maka saldo Beban Gaji pada jurnal penyesuaian yang benar adalah berada disisi debet sebesar Rp 240.000,00.PD Happy Asmara membayar gaji karyawan sebesar Rp 120.000,00 per hari. Gaji tersebut dibayarkan setiap empat hari sekali pada hari jumat. Pada akhir tahun terdapat gaji karyawan yang belum dibayar selama 2 hari. Maka saldo Beban Gaji pada jurnal penyesuaian yang benar adalah berada disisi debet sebesar Rp 240.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"18b"
+    },
+    {
+      "id":19,
+      "question":"Pada neraca saldo PD Baratajaya periode 31 November 2019 tertulis perlengkapan Rp 4.500.000, jika persediaan perlengkapan yang tersisa pada tanggal 31 Desember 2019 sebesar Rp 1.500.000. Maka saldo Perlengkapan Kantor pada jurnal penyesuaian yang benar adalah berada disisi kredit sebesar Rp 3.000.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"19b"
+    },
+    {
+      "id":20,
+      "question":"Dalam daftar saldo 31 Desember 2019 Akun Pajak Penghasilan sebesar Rp 8.000.000,00. Pada tahun ini ditetapkan oleh kantor pajak bahwa besarnya pajak Rp 9.500.000,00 dari data ini maksudnya perusahaan sudah membayar ke kantor pajak sebesar Rp 8.000.000,00 dan oleh kantor pajak pada akhir periode ditetapkan pajak yang harus dibayar perusahaan sebesar Rp 9.500.000,00. Berarti perusahaan masih menanggung beban pajak sebesar Rp 9.500.000,00. ",
+      "img":"",
+      "key":"false",
+      "pembahas":"20b"
+    },
+    {
+      "id":21,
+      "question":"PD Sentosa pada 31 Desember 2019 mencatat saldo persediaan barang dagang awal sebesar Rp. 18.000.000,00 dan persediaan barang dagang akhir sebesar Rp. 36.000.000. Maka Jurnal Penyesuaiannya dengan metode ikhtisar L/R adalah...",
+      "img":"21a",
+      "key":"false",
+      "pembahas":"21b"
+    },
+    {
+      "id":22,
+      "question":"Pada tanggal 1 Februari 2020 dibayar beban sewa untuk 1 tahun sebesar Rp xxx. Pada saat pembayaran diakui sebagai beban. Jurnal penyesuaian akhir tahun adalah Beban Sewa (D), Persekot Sewa (K).",
+      "img":"",
+      "key":"false",
+      "pembahas":"22b"
+    },
+    {
+      "id":23,
+      "question":"Tanggal 11 Februari 2019 PD Edelwise membeli perlengkapan kantor seharga Rp 25.000.000,00 secara tunai. Tanggal 31 Desember 2019 diketahui perlengkapan sudah terpakai sebesar Rp 13.000.000,00. Jurnal penyesuaian pada akhir periode mencatat Beban Perlengkapan pada debit sebesar Rp. 13.000.000,00.",
+      "img":"",
+      "key":"true",
+      "pembahas":"23b"
+    },
+    {
+      "id":24,
+      "question":"PD Rembulan menghapuskan piutang pada Tn. Surono sebesar Rp 2.000.000,00 karena usahanya bangkrut ( metode cadangan). Maka saldo beban kerugian piutang pada jurnal penyesuaian yang dicatat PD Rembulan adalah sebesar Rp. 5.000.000,00 pada sisi kredit.",
+      "img":"",
+      "key":"false",
+      "pembahas":"24b"
+    },
+    {
+      "id":25,
+      "question":"Pada tanggal 1 Januari 2020 dibayar beban sewa untuk 1 tahun sebesar Rp xxx. Pada saat pembayaran diakui sebagai harta. Jurnal penyesuaian akhir tahun adalah Beban Sewa (D), Persekot Sewa (K).",
+      "img":"",
+      "key":"true",
+      "pembahas":"25b"
+    },
+    {
+      "id":26,
+      "question":"Depresiasi Aset adalah rekening yang dalam perusahaan dagang yang memerlukan penyesuaian.",
+      "img":"",
+      "key":"true",
+      "pembahas":"26b"
+    },
+    {
+      "id":27,
+      "question":"Pada tanggal 1 Januari 2020 dibayar beban asuransi untuk 1 tahun sebesar Rp xxx. Pada saat pembayaran diakui sebagai harta. Jurnal penyesuaian akhir tahun adalah Asuransi dibayar dimuka (D), Beban Asuransi (K).",
+      "img":"",
+      "key":"false",
+      "pembahas":"27b"
+    },
+    {
+      "id":28,
+      "question":"Perusahaan Maju Mundur pada tahun 2019 melakukan pembelian perlengkapan kantor sehingga tercatat dalam neraca saldo “akun perlengkapan kantor” senilai Rp 10.000.000,00 lalu lewat pemeriksaan fisik di akhir periode diperoleh persediaan perlengkapan sebesar Rp 2.400.000,00. Maka Jurnal Penyesuaiannya adalah...",
+      "img":"28a",
+      "key":"true",
+      "pembahas":"28b"
+    },
+    {
+      "id":29,
+      "question":"PD Larasati pada 31 Desember 2019 mencatat saldo persediaan barang dagang awal sebesar Rp. 25.000.000,00 dan persediaan barang dagang akhir sebesar Rp. 40.000.000. Maka Jurnal Penyesuaiannya dengan metode ikhtisar L/R adalah...",
+      "img":"29a",
+      "key":"true",
+      "pembahas":"29b"
+    },
+    {
+      "id":30,
+      "question":"Perusahaan Muda Mudi memiliki taksiran piutang tak tertagih sebesar Rp. 700.000,00 dan memiliki saldo cadangan penghapusan piutang sebesar Rp. 500.000,00. Maka jurnal penyesuaian yang ada akan mencatat bahwa Biaya Kerugian Piutang sebesar Rp. 200.000,00.",
+      "img":"30a",
+      "key":"false",
+      "pembahas":"30b"
     }
   ]
 }

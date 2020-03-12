@@ -7,8 +7,10 @@ data class ScoreModel(
     var uid: String,
     var grade: String,
     var name: String,
-    var key_quiz: String
+    var key_quiz: String,
+    var kelas:String
+
 ) {
 
-    constructor() : this("", "", "", "")
+    constructor() : this("", "", "", "","")
 }

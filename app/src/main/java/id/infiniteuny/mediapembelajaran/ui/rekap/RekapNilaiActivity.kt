@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager.LayoutParams
+import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -14,15 +15,12 @@ import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.base.RvAdapter
 import id.infiniteuny.mediapembelajaran.data.ScoreModel
 import id.infiniteuny.mediapembelajaran.utils.logD
-import kotlinx.android.synthetic.main.activity_rekap_nilai.btn_back
-import kotlinx.android.synthetic.main.activity_rekap_nilai.rv_nilai
-import kotlinx.android.synthetic.main.activity_rekap_nilai.tb_layout
-import kotlinx.android.synthetic.main.activity_rekap_nilai.tv_fld_name
-import kotlinx.android.synthetic.main.activity_rekap_nilai.tv_fld_score
+import kotlinx.android.synthetic.main.activity_rekap_nilai.*
 
 class RekapNilaiActivity : AppCompatActivity() {
 
     private val dataGrades = mutableListOf<ScoreModel>()
+    private val dataGradesMaster= mutableListOf<ScoreModel>()
     private var isNameDesc = true
     private var isScoreDesc = true
     private val rvAdapter = object : RvAdapter<Any>(dataGrades) {
@@ -67,6 +65,21 @@ class RekapNilaiActivity : AppCompatActivity() {
         btn_back.setOnClickListener {
             onBackPressed()
         }
+        spinner_kelas.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                showData()
+            }
+
+        }
     }
 
     private fun getGrades() {
@@ -76,7 +89,7 @@ class RekapNilaiActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 if (!it.isEmpty) {
                     it.forEach { data ->
-                        dataGrades.add(data.toObject(ScoreModel::class.java))
+                        dataGradesMaster.add(data.toObject(ScoreModel::class.java))
                     }
                     logD(dataGrades.size.toString())
                     showData()
@@ -93,6 +106,10 @@ class RekapNilaiActivity : AppCompatActivity() {
     }
 
     private fun showData() {
+        clearData()
+        dataGradesMaster.forEach {
+            if(it.kelas==spinner_kelas.selectedItem.toString()) dataGrades.add(it)
+        }
         rvAdapter.notifyDataSetChanged()
 //        dataGrades.forEachIndexed{index, scoreModel ->
 //            val tbRow=TableRow(this)

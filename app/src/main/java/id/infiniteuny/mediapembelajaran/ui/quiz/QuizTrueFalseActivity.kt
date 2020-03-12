@@ -108,6 +108,7 @@ class QuizTrueFalseActivity : AppCompatActivity() {
 
     private fun checkAnswer() {
         if (questionPos <= quizQuestion.size - 1) {
+            pg_bar.visibility=View.VISIBLE
             logD(quizQuestion[questionPos].key)
             logD(answerData)
             if (answerData == quizQuestion[questionPos].key) {
@@ -167,6 +168,12 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         val tvState=v.findViewById<TextView>(R.id.tv_state)
         val tvState2=v.findViewById<TextView>(R.id.tv_state2)
         val iv_state=v.findViewById<ImageView>(R.id.iv_jawab)
+        val iv_pembahas=v.findViewById<ImageView>(R.id.iv_pembahasan)
+        if(quizQuestion[questionPos].pembahas.isNotEmpty()){
+            Glide.with(this).load(Uri
+                    .parse("android.resource://id.infiniteuny.mediapembelajaran/raw/a${quizQuestion[questionPos].pembahas}"))
+                .into(iv_pembahas)
+        }
         when(quizQuestion[questionPos].key){
             "true"->{iv_state.setImageResource(R.drawable.ic_true)}
             "false"->{iv_state.setImageResource(R.drawable.ic_false)}
@@ -187,6 +194,7 @@ class QuizTrueFalseActivity : AppCompatActivity() {
                 tvTrue.text="${it["jawab_true"] as Long}"
                 tvFalse.text="${it["jawab_false"] as Long}"
                 builder.apply {
+                    pg_bar.visibility=View.GONE
                     setTitle("")
                     setView(v)
                     setCancelable(false)
@@ -201,15 +209,13 @@ class QuizTrueFalseActivity : AppCompatActivity() {
             .addOnFailureListener {
                 logE(it.message)
             }
-
-
     }
 
     private fun showQuestion() {
         tv_question.text = quizQuestion[questionPos].question.replace("\\n", "\n", false)
         if(quizQuestion[questionPos].img.isNotEmpty()){
             Glide.with(this).load(Uri
-                    .parse("file:///android_res/raw/${quizQuestion[questionPos].img}"))
+                    .parse("android.resource://id.infiniteuny.mediapembelajaran/raw/a${quizQuestion[questionPos].pembahas}"))
                 .into(iv_question)
         }
         questionCount.text = "${questionPos + 1} / ${quizQuestion.size}"

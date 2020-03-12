@@ -32,7 +32,7 @@
             android:layout_marginTop="0dp"
             android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_header"/>
+            app:layout_constraintTop_toBottomOf="@id/iv_header" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,6 +47,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_header" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/layout_kelas"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Kelas : "
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textSize="28sp"
+            />
+    <Spinner
+        android:id="@+id/spinner_kelas"
+        android:layout_width="match_parent"
+        style="@style/mySpinnerItemStyle"
+        android:layout_height="match_parent"
+        android:entries="@array/kelas_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar" />
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -57,7 +85,7 @@
         app:cardElevation="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tool_bar">
+        app:layout_constraintTop_toBottomOf="@id/layout_kelas">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,19 +124,19 @@
                 android:id="@+id/tb_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="0dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="vertical"
                 android:padding="5dp"
                 android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_margin="5dp"
                 android:id="@+id/rv_nilai"
-                tools:listitem="@layout/item_nilai"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                tools:listitem="@layout/item_nilai" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Eccapy</string>
     <string name="tab">\u0009</string>
+    <string-array name="kelas_spinner">
+        <item>A</item>
+        <item>B</item>
+    </string-array>
 </resources>

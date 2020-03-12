@@ -239,7 +239,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         logD("score $score")
         score = (score * 100) / dataQuiz.size
         logD(Pref(this).user_name)
-        presenter.uploadScore(score, keyQuiz, Pref(this).user_name)
+        presenter.uploadScore(score, keyQuiz, Pref(this).user_name,Pref(this).kls)
 //        toastCnt(score.toString())
     }
 

@@ -84,8 +84,9 @@
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:gravity="end"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginEnd="5dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -104,12 +105,13 @@
                             android:textSize="25sp"
                             android:textStyle="bold" />
                     </androidx.appcompat.widget.LinearLayoutCompat>
+
                     <ImageView
+                        android:layout_gravity="center"
                         android:id="@+id/btn_profile"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/ic_pilih_laki"
-                        />
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_guru_profile" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
                 <GridLayout
                     android:id="@+id/grid_layout"
@@ -133,7 +135,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_rowWeight="1"
-                        app:cardBackgroundColor="#42FFDE"
+                        app:cardBackgroundColor="@color/softRed"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="1dp">
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -170,7 +172,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_rowWeight="1"
-                        app:cardBackgroundColor="#42FFDE"
+                        app:cardBackgroundColor="@color/softYellow"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="1dp">
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -183,13 +185,13 @@
                                 android:layout_margin="10dp"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_materi"
+                                android:src="@drawable/ic_petunjuk"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="5dp"
-                                android:text="Rekap Nilai"
+                                android:text="Petunjuk"
                                 android:layout_margin="10dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintBottom_toBottomOf="parent"

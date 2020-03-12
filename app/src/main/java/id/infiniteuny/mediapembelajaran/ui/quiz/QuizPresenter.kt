@@ -4,6 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import id.infiniteuny.mediapembelajaran.R
+import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
 import id.infiniteuny.mediapembelajaran.data.Questions
 import id.infiniteuny.mediapembelajaran.data.ScoreModel
@@ -52,12 +53,12 @@ class QuizPresenter(private val db: FirebaseFirestore, private val view: QuizVie
         view.showQuestions(dataQuestions)
     }
 
-    fun uploadScore(score: Int, keyquiz: String, name: String) {
+    fun uploadScore(score: Int, keyquiz: String, name: String,kelas:String) {
         val fAuth = FirebaseAuth.getInstance()
         val uid = fAuth.currentUser!!.uid
         view.resultLoad(true)
         db.collection("student_grade")
-            .add(ScoreModel(uid, score.toString(), name, keyquiz))
+            .add(ScoreModel(uid, score.toString(), name, keyquiz,kelas))
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     view.resultUpload(true, score)

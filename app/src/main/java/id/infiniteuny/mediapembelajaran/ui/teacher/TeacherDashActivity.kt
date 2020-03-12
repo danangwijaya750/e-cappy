@@ -20,8 +20,13 @@ import id.infiniteuny.mediapembelajaran.R.string
 import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.ui.login.LoginActivity
 import id.infiniteuny.mediapembelajaran.ui.login.SelectAccountActivity
+import id.infiniteuny.mediapembelajaran.ui.manual.ManualActivity
 import id.infiniteuny.mediapembelajaran.ui.rekap.RekapNilaiActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.btn_petunjuk
+import kotlinx.android.synthetic.main.activity_main.btn_profile
+import kotlinx.android.synthetic.main.activity_main.tv_username
+import kotlinx.android.synthetic.main.activity_teacher_dash.*
 import kotlinx.android.synthetic.main.activity_teacher_dash.btn_materi
 
 class TeacherDashActivity : AppCompatActivity() {
@@ -43,6 +48,9 @@ class TeacherDashActivity : AppCompatActivity() {
         btn_materi.setOnClickListener {
             startActivity(Intent(this, RekapNilaiActivity::class.java))
         }
+        btn_petunjuk.setOnClickListener {
+            startActivity(Intent(this,ManualActivity::class.java))
+        }
 
         btn_profile.setOnClickListener {
             val builder = AlertDialog.Builder(this)
@@ -50,7 +58,7 @@ class TeacherDashActivity : AppCompatActivity() {
             val tv = v.findViewById<TextView>(R.id.tv_username)
             val tv2 = v.findViewById<TextView>(R.id.tv_email)
             val iv=v.findViewById<ImageView>(R.id.iv_profile)
-//            iv.setImageResource(R.drawable)
+            iv.setImageResource(R.drawable.ic_guru_profile)
             val iv_lo=v.findViewById<ImageView>(R.id.btn_logout)
             tv.text = Pref(this).user_name
             tv2.text = FirebaseAuth.getInstance().currentUser!!.email
@@ -68,6 +76,7 @@ class TeacherDashActivity : AppCompatActivity() {
                 startActivity(Intent(this,SelectAccountActivity::class.java))
                 this@TeacherDashActivity.finish()
             }
+
         }
 
     }
