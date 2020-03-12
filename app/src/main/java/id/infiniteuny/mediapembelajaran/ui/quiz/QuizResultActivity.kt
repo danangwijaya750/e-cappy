@@ -16,12 +16,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.ui.pembahasan.ActivityPembahasan
 import id.infiniteuny.mediapembelajaran.utils.logD
-import kotlinx.android.synthetic.main.activity_quiz_result.btn_back
-import kotlinx.android.synthetic.main.activity_quiz_result.btn_to_bahas
-import kotlinx.android.synthetic.main.activity_quiz_result.btn_to_home
-import kotlinx.android.synthetic.main.activity_quiz_result.pieChart
-import kotlinx.android.synthetic.main.activity_quiz_result.root_lay
-import kotlinx.android.synthetic.main.activity_quiz_result.tool_bar
+import kotlinx.android.synthetic.main.activity_quiz_result.*
 
 class QuizResultActivity : AppCompatActivity() {
 
@@ -39,10 +34,10 @@ class QuizResultActivity : AppCompatActivity() {
         supportActionBar?.hide()
         if (intent.getStringExtra("caller") == "eval") {
             root_lay.setBackgroundColor(resources.getColor(R.color.lightBlue))
-            tool_bar.setBackgroundColor(resources.getColor(R.color.lightBlue))
+            iv_type.setImageResource(R.drawable.ic_ujikemampuan_otak)
         }else if(intent.getStringExtra("caller") == "quizes"){
             root_lay.setBackgroundColor(resources.getColor(R.color.tentang))
-            tool_bar.setBackgroundColor(resources.getColor(R.color.tentang))
+            iv_type.setImageResource(R.drawable.ic_quiz_jam)
             btn_to_bahas.visibility= View.INVISIBLE
         }
         if(intent.getStringExtra("caller") == "quizes") {
