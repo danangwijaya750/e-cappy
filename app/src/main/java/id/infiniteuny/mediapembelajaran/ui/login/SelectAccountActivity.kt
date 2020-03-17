@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_select_account.rb_student
 import kotlinx.android.synthetic.main.activity_select_account.rb_teacher
 
 class SelectAccountActivity : AppCompatActivity() {
-    private  var role=""
+    private  var role="guru"
     lateinit var fAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -87,11 +87,22 @@ class TeacherLoginActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener {
                 btn_login.isClickable=true
-                toastCnt("Welcome Teacher")
-                Pref(this).user_name = it.documents[0]["name"].toString()
-                pg_bar.visibility = View.GONE
-                startActivity(Intent(this@TeacherLoginActivity,TeacherDashActivity::class.java))
-                this@TeacherLoginActivity.finish()
+                if(it.isEmpty){
+                    toastCnt("Username atau Password salah")
+                    fAuth.signOut()
+                    pg_bar.visibility = View.GONE
+                }else {
+                    toastCnt("Welcome Teacher")
+                    Pref(this).user_name = it.documents[0]["name"].toString()
+                    pg_bar.visibility = View.GONE
+                    startActivity(
+                        Intent(
+                            this@TeacherLoginActivity,
+                            TeacherDashActivity::class.java
+                        )
+                    )
+                    this@TeacherLoginActivity.finish()
+                }
             }
             .addOnFailureListener {
                 logE(it.message)

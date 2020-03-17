@@ -52,7 +52,7 @@ class RekapNilaiActivity : AppCompatActivity() {
                 false -> dataGrades.sortByDescending { it.name }
             }
             isNameDesc = !isNameDesc
-            showData()
+            showDataAfterSort()
         }
         tv_fld_score.setOnClickListener {
             when (isScoreDesc) {
@@ -60,7 +60,7 @@ class RekapNilaiActivity : AppCompatActivity() {
                 false -> dataGrades.sortByDescending { it.grade.toDoubleOrNull() }
             }
             isScoreDesc = !isScoreDesc
-            showData()
+            showDataAfterSort()
         }
         btn_back.setOnClickListener {
             onBackPressed()
@@ -103,6 +103,14 @@ class RekapNilaiActivity : AppCompatActivity() {
     private fun clearData() {
         dataGrades.clear()
         tb_layout.removeAllViews()
+    }
+    private fun showDataAfterSort(){
+        val temp= mutableListOf<ScoreModel>()
+        temp.addAll(dataGrades)
+        dataGrades.clear()
+        tb_layout.removeAllViews()
+        dataGrades.addAll(temp)
+        rvAdapter.notifyDataSetChanged()
     }
 
     private fun showData() {

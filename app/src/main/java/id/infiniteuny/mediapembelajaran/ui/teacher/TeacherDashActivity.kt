@@ -46,7 +46,7 @@ class TeacherDashActivity : AppCompatActivity() {
         tv_username.text = Pref(this).user_name
 
         btn_materi.setOnClickListener {
-            startActivity(Intent(this, RekapNilaiActivity::class.java))
+            startActivity(Intent(this, SelectRekapActivity::class.java))
         }
         btn_petunjuk.setOnClickListener {
             startActivity(Intent(this,ManualActivity::class.java))

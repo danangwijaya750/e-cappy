@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
     private var createUser = false
     lateinit var fAuth: FirebaseAuth
+    private var gender="perempuan"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.requestFeature(Window.FEATURE_ACTION_BAR)
@@ -46,6 +47,12 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+        rb_student_female.setOnClickListener {
+            gender="perempuan"
+        }
+        rb_student_male.setOnClickListener {
+            gender="laki"
+        }
         btn_change.setOnClickListener {
             createUser = !createUser
             changeView()
@@ -56,15 +63,21 @@ class LoginActivity : AppCompatActivity() {
         when (createUser) {
             true -> {
                 et_name.visibility = View.VISIBLE
+                header_daftar.visibility=View.VISIBLE
+                header_login.visibility=View.GONE
                 cntr.visibility=View.VISIBLE
+                layout_kelas.visibility=View.VISIBLE
                 iv_icon.visibility=View.INVISIBLE
                 btn_login.text = "Daftar"
                 btn_change.text = "Masuk"
             }
             false -> {
+                header_daftar.visibility=View.GONE
+                header_login.visibility=View.VISIBLE
                 cntr.visibility=View.GONE
                 iv_icon.visibility=View.VISIBLE
                 et_name.visibility = View.GONE
+                layout_kelas.visibility=View.GONE
                 btn_login.text = "Masuk"
                 btn_change.text = "Daftar"
             }
@@ -94,13 +107,19 @@ class LoginActivity : AppCompatActivity() {
         db.collection("student").whereEqualTo("uid", fAuth.uid)
             .get().addOnSuccessListener {
                 btn_login.isClickable=true
-                toastCnt("Welcome Student")
-                Pref(this).user_name = it.documents[0]["name"].toString()
-                Pref(this).jk = it.documents[0]["jk"].toString()
-                Pref(this).kls = it.documents[0]["kelas"].toString()
-                pg_bar.visibility = View.GONE
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                this@LoginActivity.finish()
+                if(it.isEmpty){
+                    toastCnt("Username atau Password salah")
+                    fAuth.signOut()
+                    pg_bar.visibility = View.GONE
+                }else {
+                    toastCnt("Welcome Student")
+                    Pref(this).user_name = it.documents[0]["name"].toString()
+                    Pref(this).jk = it.documents[0]["jk"].toString()
+                    Pref(this).kls = it.documents[0]["kelas"].toString()
+                    pg_bar.visibility = View.GONE
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    this@LoginActivity.finish()
+                }
             }
             .addOnFailureListener {
                 toastCnt(it.localizedMessage)
@@ -126,11 +145,11 @@ class LoginActivity : AppCompatActivity() {
         fAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    val jk= when(rb_student_female.isSelected){
-                        true->"perempuan"
-                        else->"laki"
-                    }
-                    addToSystem(it.result!!.user!!.uid,"",jk)
+//                    val jk= when(rb_student_female.isSelected){
+//                        true->"perempuan"
+//                        else->"laki"
+//                    }
+                    addToSystem(it.result!!.user!!.uid,spinner_kelas.selectedItem.toString(),gender)
                 } else {
                     toastCnt("Gagal Membuat User")
                     pg_bar.visibility = View.GONE

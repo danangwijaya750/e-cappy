@@ -9,6 +9,13 @@
         <item name="android:fontFamily">@font/cust_font</item>
 
     </style>
+    <style name="FabTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/cust_font</item>
+    </style>
     <style name="DialogTheme" parent="android:Theme.Dialog">
 
         <item name="android:layout_width">fill_parent</item>

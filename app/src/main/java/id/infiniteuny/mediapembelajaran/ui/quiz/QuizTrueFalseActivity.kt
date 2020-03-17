@@ -191,8 +191,8 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         db.collection("jawaban")
             .document(quizQuestion[questionPos].id.toString())
             .get().addOnSuccessListener {
-                tvTrue.text="${it["jawab_true"] as Long}"
-                tvFalse.text="${it["jawab_false"] as Long}"
+                tvTrue.text=" = ${it["jawab_true"] as Long}"
+                tvFalse.text=" = ${it["jawab_false"] as Long}"
                 builder.apply {
                     pg_bar.visibility=View.GONE
                     setTitle("")
@@ -215,7 +215,7 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         tv_question.text = quizQuestion[questionPos].question.replace("\\n", "\n", false)
         if(quizQuestion[questionPos].img.isNotEmpty()){
             Glide.with(this).load(Uri
-                    .parse("android.resource://id.infiniteuny.mediapembelajaran/raw/a${quizQuestion[questionPos].pembahas}"))
+                    .parse("android.resource://id.infiniteuny.mediapembelajaran/raw/a${quizQuestion[questionPos].img}"))
                 .into(iv_question)
         }
         questionCount.text = "${questionPos + 1} / ${quizQuestion.size}"

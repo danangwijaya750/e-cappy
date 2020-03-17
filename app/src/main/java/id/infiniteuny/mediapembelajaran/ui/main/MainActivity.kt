@@ -82,8 +82,8 @@ class MainActivity : AppCompatActivity() {
             val iv_lo=v.findViewById<ImageView>(R.id.btn_logout)
             tv.text = Pref(this).user_name
             when(Pref(this).jk){
-                "laki"->iv.setImageResource(R.drawable.ic_pilih_laki)
-                else->iv.setImageResource(R.drawable.ic_pilih_perempuan)
+                "laki"->iv.setImageResource(R.drawable.ic_male)
+                else->iv.setImageResource(R.drawable.ic_female)
             }
             tv2.text = FirebaseAuth.getInstance().currentUser!!.email
             builder.apply {

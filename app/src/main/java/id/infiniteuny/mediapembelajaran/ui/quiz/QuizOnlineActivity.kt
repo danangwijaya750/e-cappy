@@ -206,6 +206,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     override fun context(): Context = this
 
     private fun loadQuestion() {
+        radioGroup.clearCheck()
         tv_question.text = dataQuiz[questionPos].question.replace("\\n", "\n", false)
         radioButton1.text = dataQuiz[questionPos].option1.replace("\\n", "\n", false)
         radioButton2.text = dataQuiz[questionPos].option2.replace("\\n", "\n", false)
