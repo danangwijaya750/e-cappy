@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent">
             <TextView
                 android:textAlignment="center"
-                android:text="Selamat Data Sahabat Eccapy"
+                android:text="Selamat Datang Guru Eccapy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"

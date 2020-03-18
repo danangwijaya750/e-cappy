@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
 import id.infiniteuny.mediapembelajaran.R
+import kotlinx.android.synthetic.main.activity_tentang.*
 
 
 class TentangActivity : AppCompatActivity() {
@@ -22,5 +23,13 @@ class TentangActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+        btn_back.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

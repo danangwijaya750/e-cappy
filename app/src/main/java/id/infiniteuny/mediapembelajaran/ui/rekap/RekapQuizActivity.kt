@@ -19,7 +19,6 @@ import id.infiniteuny.mediapembelajaran.data.Quizes
 import id.infiniteuny.mediapembelajaran.data.ScoreModel
 import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.logE
-import kotlinx.android.synthetic.main.activity_quiz_true_false.*
 import kotlinx.android.synthetic.main.activity_rekap_quiz.*
 import kotlinx.android.synthetic.main.activity_rekap_quiz.iv_question
 import kotlinx.android.synthetic.main.activity_rekap_quiz.tv_question
@@ -33,6 +32,11 @@ class RekapQuizActivity : AppCompatActivity() {
     private val dataSoal= mutableListOf<QuizModel>()
     private val rvAdapter=RvAdapterUnit(dataSoal){
         showData(it)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     private fun showData(data:QuizModel){
@@ -79,6 +83,10 @@ class RekapQuizActivity : AppCompatActivity() {
             layoutManager=layManager
             adapter=rvAdapter
         }
+        btn_back.setOnClickListener {
+            onBackPressed()
+        }
+
         readData()
         showData(dataSoal[0])
 

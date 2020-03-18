@@ -42,7 +42,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Selamat Data Sahabat Eccapy"
+                    android:text="Selamat Datang Guru Eccapy"
                     android:textColor="@color/navBackground"
                     android:textSize="18sp"
                     android:textStyle="bold" />

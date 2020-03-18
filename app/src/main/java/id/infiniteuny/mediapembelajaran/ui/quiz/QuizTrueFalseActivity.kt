@@ -81,11 +81,11 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         getTrainQuestions()
         btn_true.setOnClickListener {
             answerData = "true"
-            toastCnt(answerData)
+            toastCnt("Anda Memilih $answerData")
         }
         btn_false.setOnClickListener {
             answerData = "false"
-            toastCnt(answerData)
+            toastCnt("Anda Memilih $answerData")
         }
 
         btn_submit.setOnClickListener {
