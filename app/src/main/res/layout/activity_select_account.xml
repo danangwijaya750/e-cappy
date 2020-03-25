@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pilih Peran Mu"
+                android:text="Pilih Peran Anda"
                 android:textColor="@color/navBackground"
                 android:textSize="20sp"
                 android:textStyle="bold" />

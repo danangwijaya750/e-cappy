@@ -14,12 +14,16 @@ import android.view.Window
 import android.view.WindowManager.LayoutParams
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
+import id.infiniteuny.mediapembelajaran.base.RvAdapter
 import id.infiniteuny.mediapembelajaran.data.Pref
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
 import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.activity_quiz.btn_submit
 import kotlinx.android.synthetic.main.activity_quiz.radioButton1
 import kotlinx.android.synthetic.main.activity_quiz.radioButton2
@@ -27,8 +31,10 @@ import kotlinx.android.synthetic.main.activity_quiz.radioButton3
 import kotlinx.android.synthetic.main.activity_quiz.radioButton4
 import kotlinx.android.synthetic.main.activity_quiz.radioButton5
 import kotlinx.android.synthetic.main.activity_quiz.radioGroup
+import kotlinx.android.synthetic.main.activity_quiz.rv_soal_pos
 import kotlinx.android.synthetic.main.activity_quiz.timeCounter
 import kotlinx.android.synthetic.main.activity_quiz.tv_question
+import kotlinx.android.synthetic.main.activity_quiz_online.*
 import kotlinx.android.synthetic.main.activity_quiz_online.pg_bar
 import kotlinx.android.synthetic.main.activity_quiz_online.progressbar
 import kotlinx.android.synthetic.main.activity_quiz_online.questionCount
@@ -44,6 +50,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     private val dataQuiz = mutableListOf<QuestionModel>()
     private var questionPos = 0
     private var score = 0
+    private var trueAns = 0
 
     private var colorStateList: ColorStateList? = null
     private var colorStateListCountDown: ColorStateList? = null
@@ -64,6 +71,14 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
 
     private lateinit var db: FirebaseFirestore
 
+    private val dataQuizPosition= mutableListOf<Int>()
+    private var rvAdapter=object : RvAdapter<Any>(dataQuizPosition){
+        override fun layoutId(position: Int, obj: Any): Int =R.layout.item_circle
+
+        override fun viewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =SoalPositionVH(view)
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.requestFeature(Window.FEATURE_ACTION_BAR)
@@ -82,6 +97,12 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         colorStateListCountDown = timeCounter!!.textColors
 
         presenter = QuizPresenter(db, this)
+        val layMan= LinearLayoutManager(this)
+        layMan.orientation= LinearLayoutManager.HORIZONTAL
+        rv_soal_pos.apply {
+            adapter=rvAdapter
+            layoutManager=layMan
+        }
 
         timeLeft = COUNTDOWN_TIMER
         loadQuiz()
@@ -138,7 +159,7 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         val min = (timeLeft / 1000).toInt() / 60
         val sec = (timeLeft / 1000).toInt() % 60
         val timeFormat = String.format(Locale.getDefault(), "%02d:%02d", min, sec)
-        timeCounter!!.text = timeFormat
+        timeCounter!!.text = "Sisa Waktu : ${timeFormat}"
 
         if (timeLeft < 10000) {
             timeCounter!!.setTextColor(Color.RED)
@@ -169,6 +190,10 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
         dataQuiz.addAll(data)
         shuffle(dataQuiz)
         startCountDown()
+        for (i in 1..data.size){
+            dataQuizPosition.add(i)
+        }
+        rvAdapter.notifyDataSetChanged()
         loadQuestion()
     }
 
@@ -178,6 +203,8 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
                 val intent = Intent(this, QuizResultActivity::class.java)
                 intent.putExtra("caller", "eval")
                 intent.putExtra("score", score)
+                intent.putExtra("true_ans",trueAns)
+                intent.putExtra("false_ans",dataQuiz.size-trueAns)
                 startActivity(intent)
                 finish()
             }
@@ -229,6 +256,9 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
             questionPos++
             if (questionPos <= dataQuiz.size - 1) {
                 loadQuestion()
+                QuizPosHelper.quizPos=questionPos+1
+                rvAdapter.notifyDataSetChanged()
+                rv_soal_pos.layoutManager!!.scrollToPosition(QuizPosHelper.quizPos-1)
             } else {
                 showResultQuiz()
             }
@@ -238,7 +268,8 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     private fun showResultQuiz() {
         countDownTimer!!.cancel()
         logD("score $score")
-        score = (score * 100) / dataQuiz.size
+        trueAns=score
+        score = (score * 5)
         logD(Pref(this).user_name)
         presenter.uploadScore(score, keyQuiz, Pref(this).user_name,Pref(this).kls)
 //        toastCnt(score.toString())
@@ -247,6 +278,6 @@ class QuizOnlineActivity : AppCompatActivity(), QuizView {
     companion object {
 
         val FINAL_SCORE = "FinalScore"
-        private val COUNTDOWN_TIMER: Long = 1200000
+        private val COUNTDOWN_TIMER: Long = 1800000
     }
 }

@@ -8,7 +8,7 @@ import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import kotlinx.android.synthetic.main.activity_detail_materi.btn_back
-import kotlinx.android.synthetic.main.activity_detail_materi.web_view
+import kotlinx.android.synthetic.main.activity_pembahasan.*
 import kotlinx.android.synthetic.main.activity_quiz_result.tool_bar
 
 class ActivityPembahasan : AppCompatActivity() {
@@ -35,11 +35,13 @@ class ActivityPembahasan : AppCompatActivity() {
         when (intent.getStringExtra("caller")) {
             "eval" -> {
                 tool_bar.setBackgroundColor(resources.getColor(R.color.lightBlue))
-                web_view.loadUrl("file:///android_res/raw/pmbhs_eval")
+//                web_view.loadUrl("file:///android_res/raw/pmbhs_eval")
+                pdfView.fromAsset("key_uji.pdf").load()
             }
             else -> {
                 tool_bar.setBackgroundColor(resources.getColor(R.color.softYellow))
-                web_view.loadUrl("file:///android_res/raw/pmbhs_train")
+//                web_view.loadUrl("file:///android_res/raw/pmbhs_train")
+                pdfView.fromAsset("key_latihan.pdf").load()
             }
         }
     }

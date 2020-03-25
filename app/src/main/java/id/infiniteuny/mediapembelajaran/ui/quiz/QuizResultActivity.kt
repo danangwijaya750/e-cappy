@@ -35,16 +35,19 @@ class QuizResultActivity : AppCompatActivity() {
         if (intent.getStringExtra("caller") == "eval") {
             root_lay.setBackgroundColor(resources.getColor(R.color.lightBlue))
             iv_type.setImageResource(R.drawable.ic_ujikemampuan_otak)
+            iv_fireworks.setImageResource(R.drawable.ic_fireworks_ujikemampuan)
         }else if(intent.getStringExtra("caller") == "quizes"){
-            root_lay.setBackgroundColor(resources.getColor(R.color.tentang))
-            iv_type.setImageResource(R.drawable.ic_quiz_jam)
+            root_lay.setBackgroundColor(resources.getColor(R.color.purple))
+            iv_type.setImageResource(R.drawable.ic_bg_pialaa)
             btn_to_bahas.visibility= View.INVISIBLE
+            iv_fireworks.setImageResource(R.drawable.ic_hasil_nilai_fireworks)
         }
         if(intent.getStringExtra("caller") == "quizes") {
             setChartForQuiz(intent.getIntExtra("score", 0))
         }else{
             setChartValue(intent.getIntExtra("score", 0))
         }
+
 
         btn_back.setOnClickListener {
             onBackPressed()
@@ -69,7 +72,6 @@ class QuizResultActivity : AppCompatActivity() {
         xvals.add(PieEntry(data.toFloat(), "Your Score"))
         val dataSet = PieDataSet(xvals, "")
         dataSet.colors = listOf(Color.RED, Color.GREEN)
-
         val pieData = PieData(dataSet)
         pieChart.description.text = ""
         pieData.setValueFormatter(PercentFormatter())
@@ -78,6 +80,12 @@ class QuizResultActivity : AppCompatActivity() {
         pieChart.setDrawEntryLabels(false)
         pieChart.data.setValueTextColor(Color.WHITE)
         pieChart.data.setValueTextSize(15f)
+
+        logD(intent.getIntExtra("true_ans",0).toString())
+        logD(intent.getIntExtra("false_ans",0).toString())
+        tv_score.text=data.toString()
+        tv_tr_ans.text=intent.getIntExtra("true_ans",0).toString()
+        tv_fl_ans.text=intent.getIntExtra("false_ans",0).toString()
     }
     private fun setChartForQuiz(data: Int){
         logD(data.toString())
@@ -96,6 +104,11 @@ class QuizResultActivity : AppCompatActivity() {
         pieChart.setDrawEntryLabels(false)
         pieChart.data.setValueTextColor(Color.WHITE)
         pieChart.data.setValueTextSize(15f)
+        logD(intent.getIntExtra("true_ans",0).toString())
+        logD(intent.getIntExtra("false_ans",0).toString())
+        tv_score.text=data.toString()
+        tv_tr_ans.text=intent.getIntExtra("true_ans",0).toString()
+        tv_fl_ans.text=intent.getIntExtra("false_ans",0).toString()
     }
 
     override fun onBackPressed() {

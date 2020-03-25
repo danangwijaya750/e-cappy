@@ -17,20 +17,15 @@ import android.view.Window
 import android.view.WindowManager.LayoutParams
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import id.infiniteuny.mediapembelajaran.R
+import id.infiniteuny.mediapembelajaran.base.RvAdapter
 import id.infiniteuny.mediapembelajaran.data.QuestionModel
 import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
-import kotlinx.android.synthetic.main.activity_quiz.btn_submit
-import kotlinx.android.synthetic.main.activity_quiz.radioButton1
-import kotlinx.android.synthetic.main.activity_quiz.radioButton2
-import kotlinx.android.synthetic.main.activity_quiz.radioButton3
-import kotlinx.android.synthetic.main.activity_quiz.radioButton4
-import kotlinx.android.synthetic.main.activity_quiz.radioButton5
-import kotlinx.android.synthetic.main.activity_quiz.radioGroup
-import kotlinx.android.synthetic.main.activity_quiz.timeCounter
-import kotlinx.android.synthetic.main.activity_quiz.tv_question
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.activity_quiz_online.progressbar
 import kotlinx.android.synthetic.main.activity_quiz_online.questionCount
 import kotlinx.android.synthetic.main.activity_setting.btn_back
@@ -61,6 +56,16 @@ class QuizActivity : AppCompatActivity(), QuizView {
     private var pgBarControl = 1
     private var keyQuiz = ""
 
+    private val dataQuizPosition= mutableListOf<Int>()
+    private var rvAdapter=object : RvAdapter<Any>(dataQuizPosition){
+        override fun layoutId(position: Int, obj: Any): Int =R.layout.item_circle
+
+        override fun viewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =SoalPositionVH(view)
+
+    }
+
+
+
     @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +88,12 @@ class QuizActivity : AppCompatActivity(), QuizView {
         quizType = intent.getStringExtra("type")
 
         presenter = QuizPresenter(FirebaseFirestore.getInstance(), this)
+        val layMan=LinearLayoutManager(this)
+        layMan.orientation=LinearLayoutManager.HORIZONTAL
+        rv_soal_pos.apply {
+            adapter=rvAdapter
+            layoutManager=layMan
+        }
 
         quizTypeDecision()
 
@@ -126,7 +137,7 @@ class QuizActivity : AppCompatActivity(), QuizView {
         val min = (timeLeft / 1000).toInt() / 60
         val sec = (timeLeft / 1000).toInt() % 60
         val timeFormat = String.format(Locale.getDefault(), "%02d:%02d", min, sec)
-        timeCounter!!.text = timeFormat
+        timeCounter!!.text = "Sisa Waktu : ${timeFormat}"
 
         if (timeLeft < 10000) {
             timeCounter!!.setTextColor(Color.RED)
@@ -170,6 +181,10 @@ class QuizActivity : AppCompatActivity(), QuizView {
         dataQuiz.clear()
         dataQuiz.addAll(data)
         startCountDown()
+        for (i in 1..data.size){
+            dataQuizPosition.add(i)
+        }
+        rvAdapter.notifyDataSetChanged()
         loadQuestion()
     }
 
@@ -205,6 +220,9 @@ class QuizActivity : AppCompatActivity(), QuizView {
             questionPos++
             if (questionPos <= dataQuiz.size - 1) {
                 loadQuestion()
+                QuizPosHelper.quizPos=questionPos+1
+                rvAdapter.notifyDataSetChanged()
+                rv_soal_pos.layoutManager!!.scrollToPosition(QuizPosHelper.quizPos-1)
             } else {
                 showResultQuiz()
 //                toastCnt(score.toString())
@@ -216,9 +234,12 @@ class QuizActivity : AppCompatActivity(), QuizView {
         countDownTimer!!.cancel()
         val intent = Intent(this, QuizResultActivity::class.java)
         logD("score $score")
-        score = (score * 100) / dataQuiz.size
+        val trueAns=score
+        score = (score * 5)
         intent.putExtra("caller", "practice")
         intent.putExtra("score", score)
+        intent.putExtra("true_ans",trueAns)
+        intent.putExtra("false_ans",dataQuiz.size-trueAns)
         startActivity(intent)
         finish()
     }

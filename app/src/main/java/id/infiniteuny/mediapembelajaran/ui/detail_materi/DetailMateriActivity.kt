@@ -1,5 +1,6 @@
 package id.infiniteuny.mediapembelajaran.ui.detail_materi
 
+import android.net.Uri
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
@@ -8,9 +9,7 @@ import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import id.infiniteuny.mediapembelajaran.R
 import id.infiniteuny.mediapembelajaran.data.MaterialModel
-import kotlinx.android.synthetic.main.activity_detail_materi.btn_back
-import kotlinx.android.synthetic.main.activity_detail_materi.tv_title
-import kotlinx.android.synthetic.main.activity_detail_materi.web_view
+import kotlinx.android.synthetic.main.activity_detail_materi.*
 
 class DetailMateriActivity : AppCompatActivity() {
 
@@ -28,7 +27,10 @@ class DetailMateriActivity : AppCompatActivity() {
         supportActionBar?.hide()
         val data = intent.getParcelableExtra<MaterialModel.Data>("data")
         tv_title.text = data.title
-        web_view.loadUrl("file:///android_res/raw/${data.file}")
+//        web_view.loadUrl("file:///android_res/raw/${data.file}")
+        pdfView.fromAsset(data.file)
+            .load()
+
         btn_back.setOnClickListener {
             onBackPressed()
         }

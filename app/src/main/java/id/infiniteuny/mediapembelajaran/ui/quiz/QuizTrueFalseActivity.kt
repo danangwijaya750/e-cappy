@@ -16,21 +16,27 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import id.infiniteuny.mediapembelajaran.R
+import id.infiniteuny.mediapembelajaran.base.RvAdapter
 import id.infiniteuny.mediapembelajaran.data.*
 import id.infiniteuny.mediapembelajaran.utils.logD
 import id.infiniteuny.mediapembelajaran.utils.logE
 import id.infiniteuny.mediapembelajaran.utils.toastCnt
-import kotlinx.android.synthetic.main.activity_quiz.radioGroup
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.activity_quiz_true_false.*
+import kotlinx.android.synthetic.main.activity_quiz_true_false.btn_back
 import kotlinx.android.synthetic.main.activity_quiz_true_false.btn_submit
+import kotlinx.android.synthetic.main.activity_quiz_true_false.pg_bar
 import kotlinx.android.synthetic.main.activity_quiz_true_false.progressbar
 import kotlinx.android.synthetic.main.activity_quiz_true_false.questionCount
+import kotlinx.android.synthetic.main.activity_quiz_true_false.rv_soal_pos
 import kotlinx.android.synthetic.main.activity_quiz_true_false.timeCounter
 import kotlinx.android.synthetic.main.activity_quiz_true_false.tv_question
 import java.io.BufferedReader
@@ -61,6 +67,14 @@ class QuizTrueFalseActivity : AppCompatActivity() {
     private var keyQuiz = ""
     private lateinit var db:FirebaseFirestore
 
+    private val dataQuizPosition= mutableListOf<Int>()
+    private var rvAdapter=object : RvAdapter<Any>(dataQuizPosition){
+        override fun layoutId(position: Int, obj: Any): Int =R.layout.item_circle
+
+        override fun viewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =SoalPositionVH(view)
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.requestFeature(Window.FEATURE_ACTION_BAR)
@@ -74,6 +88,12 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         }
         db= FirebaseFirestore.getInstance()
         progressbar.progress = pgBarControl
+        val layMan= LinearLayoutManager(this)
+        layMan.orientation= LinearLayoutManager.HORIZONTAL
+        rv_soal_pos.apply {
+            adapter=rvAdapter
+            layoutManager=layMan
+        }
 
         colorStateListCountDown = timeCounter!!.textColors
         timeLeft = 180000
@@ -154,6 +174,9 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         questionPos++
         if (questionPos <= quizQuestion.size - 1) {
             showQuestion()
+            QuizPosHelper.quizPos=questionPos+1
+            rvAdapter.notifyDataSetChanged()
+            rv_soal_pos.layoutManager!!.scrollToPosition(QuizPosHelper.quizPos-1)
         } else {
             inLastQuestion()
         }
@@ -248,7 +271,7 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         val min = (timeLeft / 1000).toInt() / 60
         val sec = (timeLeft / 1000).toInt() % 60
         val timeFormat = String.format(Locale.getDefault(), "%02d:%02d", min, sec)
-        timeCounter!!.text = timeFormat
+        timeCounter!!.text = "Sisa Waktu : ${timeFormat}"
 
         if (timeLeft < 10000) {
             timeCounter!!.setTextColor(Color.RED)
@@ -275,6 +298,10 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         shuffle(dataQuestions)
         quizQuestion.addAll(dataQuestions.take(10))
         logD("${quizQuestion.size}")
+        for (i in 1..quizQuestion.size){
+            dataQuizPosition.add(i)
+        }
+        rvAdapter.notifyDataSetChanged()
         showQuestion()
     }
     private fun inLastQuestion(){
@@ -282,7 +309,9 @@ class QuizTrueFalseActivity : AppCompatActivity() {
         logD("score $score")
         val intent = Intent(this, QuizResultActivity::class.java)
         intent.putExtra("caller", "quizes")
-        intent.putExtra("score", score)
+        intent.putExtra("score", score*10)
+        intent.putExtra("true_ans",score)
+        intent.putExtra("false_ans",quizQuestion.size-score)
         startActivity(intent)
         finish()
     }

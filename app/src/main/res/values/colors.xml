@@ -11,4 +11,5 @@
     <color name="navBackground">#0A0A48</color>
     <color name="tentang">#42FFDE</color>
     <color name="pengaturan">#A870D3</color>
+    <color name="purple"> #E307CE</color>
 </resources>

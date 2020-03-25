@@ -40,6 +40,7 @@ class RekapQuizActivity : AppCompatActivity() {
     }
 
     private fun showData(data:QuizModel){
+        RekapPosHelper.rekapPos=data.id
         tv_soal.text="Soal ${data.id}"
         tv_question.text = data.question.replace("\\n", "\n", false)
         if(data.img.isNotEmpty()){
@@ -63,6 +64,8 @@ class RekapQuizActivity : AppCompatActivity() {
             .addOnFailureListener {
                 logE(it.message)
             }
+        rvAdapter.notifyDataSetChanged()
+        rv_pos.layoutManager!!.scrollToPosition(RekapPosHelper.rekapPos-1)
 
     }
     override fun onCreate(savedInstanceState: Bundle?) {
